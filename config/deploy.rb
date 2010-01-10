@@ -4,7 +4,8 @@ set :application, 'jackandlindseyaregettingmarried'
 
 set :scm,         :git
 set :repository,  'git://github.com/JackNeto/jackandlindseyaregettingmarried.git'
-# set :deploy_via,  :remote_cache
+set :deploy_via,  :remote_cache
+set :app_symlinks,  %w{ avatars }
 
 set :user,      'deploy'
 set :use_sudo,  false

@@ -3,19 +3,19 @@ default_run_options[:pty] = true
 set :application, 'jackandlindseyaregettingmarried'
 
 set :scm,         :git
-set :repository,  'git@github.com:JackNeto/jackandlindseyaregettingmarried.git'
-set :deploy_via,  :remote_cache
+set :repository,  'git://github.com/JackNeto/jackandlindseyaregettingmarried.git'
+# set :deploy_via,  :remote_cache
 
 set :user,      'deploy'
 set :use_sudo,  false
 
-set :keep_releases, 3
+set :keep_releases, 1
 
 task :production do
   set :rails_env,   'production'
-  set :domain,      "#{application}.ca"
+  set :domain,      "rails.twg.ca"
   set :deploy_to,   "/web/#{application}"
-  set :branch,      'deploy'
+  set :branch,      'master'
   
   role :app,  domain
   role :web,  domain
@@ -33,7 +33,7 @@ namespace :deploy do
   end
   
   task :apply_configs, :roles => :app do
-    run "cp #{release_path}/config/environments/#{rails_env}/database.yml #{release_path}/config/database.yml"
+    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 end
 

@@ -22,10 +22,10 @@
   .form_element.image
     .label= form.label :avatar, 'Photo'
     .field  
-      - if @user.avatar?
+      - if !@user.blank? && @user.avatar?
         = image_tag @user.avatar.url(:thumb)
       = form.file_field :avatar
-      - if @user.avatar?
+      - if !@user.blank? && @user.avatar?
         %br/
         = link_to 'Delete photo', delete_avatar_cms_admin_user_path(@user), :method => :delete, :confirm => 'Are you sure?'
 

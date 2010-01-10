@@ -1,0 +1,25 @@
+development: &development
+  adapter: mysql
+  database: jack_lindsey_development
+  username: twg
+  password: twgRulez
+  host: 127.0.0.1
+  encoding: UTF8
+
+test:
+  <<: *development
+  database: jack_lindsey_test
+
+staging:
+  <<: *development
+  database: jack_lindsey_staging
+  username: deploy
+  password: j34h4y4hgd
+
+
+production:
+  <<: *development
+  database: jack_lindsey_production
+  username: charities
+  password: j34h4y4hgd
+

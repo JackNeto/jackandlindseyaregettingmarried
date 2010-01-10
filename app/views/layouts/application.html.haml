@@ -1,0 +1,23 @@
+!!! XML
+!!! 1.0
+%html{:xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang'=>"en"}
+  %head
+    = render :partial => 'layouts/head'
+    
+  %body
+    .body_wrapper
+      .left
+      .center
+        .logo= image_tag 'logo.gif'
+        .content_wrapper
+          .header
+            = image_tag 'photo_blue_1.gif'
+          .sub_header
+            Joaquim José Nunes Ferreira Neto & Lindsey Beth Morsh Donovan
+            .date When: July 17, 2010
+          = render :partial => 'layouts/nav'
+          .content
+            = yield
+          .footer
+            Thank you!
+      .right

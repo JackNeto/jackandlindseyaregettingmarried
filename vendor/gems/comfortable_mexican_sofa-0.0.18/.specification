@@ -1,0 +1,303 @@
+--- !ruby/object:Gem::Specification 
+name: comfortable_mexican_sofa
+version: !ruby/object:Gem::Version 
+  version: 0.0.18
+platform: ruby
+authors: 
+- Oleg Khabarov, The Working Group Inc
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-10-14 00:00:00 -04:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: haml
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: will_paginate
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: paperclip
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: calendar_date_select
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: active_link_to
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+description: ""
+email: oleg@theworkinggroup.ca
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- LICENSE
+- README.rdoc
+files: 
+- .gitignore
+- CHANGELOG.rdoc
+- LICENSE
+- README.rdoc
+- Rakefile
+- VERSION
+- app/controllers/cms_admin/attachments_controller.rb
+- app/controllers/cms_admin/base_controller.rb
+- app/controllers/cms_admin/categories_controller.rb
+- app/controllers/cms_admin/layouts_controller.rb
+- app/controllers/cms_admin/pages_controller.rb
+- app/controllers/cms_admin/sections_controller.rb
+- app/controllers/cms_admin/snippets_controller.rb
+- app/controllers/cms_common/render_page.rb
+- app/controllers/cms_content_controller.rb
+- app/helpers/cms_helper.rb
+- app/models/cms_attachment.rb
+- app/models/cms_attachment_categorization.rb
+- app/models/cms_block.rb
+- app/models/cms_category.rb
+- app/models/cms_layout.rb
+- app/models/cms_page.rb
+- app/models/cms_page_categorization.rb
+- app/models/cms_snippet.rb
+- app/views/cms_admin/attachments/_details.html.haml
+- app/views/cms_admin/attachments/_form.html.haml
+- app/views/cms_admin/attachments/edit.html.haml
+- app/views/cms_admin/attachments/index.html.haml
+- app/views/cms_admin/attachments/new.html.haml
+- app/views/cms_admin/categories/_category.html.haml
+- app/views/cms_admin/categories/_category_subform.html.haml
+- app/views/cms_admin/categories/_form.html.haml
+- app/views/cms_admin/categories/_new.html.haml
+- app/views/cms_admin/categories/_toggle_link.html.haml
+- app/views/cms_admin/categories/_tree_branch.html.haml
+- app/views/cms_admin/categories/children.js.rjs
+- app/views/cms_admin/categories/create.js.rjs
+- app/views/cms_admin/categories/edit.html.haml
+- app/views/cms_admin/categories/index.html.haml
+- app/views/cms_admin/categories/new.html.haml
+- app/views/cms_admin/categories/show.html.haml
+- app/views/cms_admin/layouts/_details.html.haml
+- app/views/cms_admin/layouts/_form.html.haml
+- app/views/cms_admin/layouts/_toggle_link.html.haml
+- app/views/cms_admin/layouts/_tree_branch.html.haml
+- app/views/cms_admin/layouts/children.js.rjs
+- app/views/cms_admin/layouts/edit.html.haml
+- app/views/cms_admin/layouts/index.html.haml
+- app/views/cms_admin/layouts/new.html.haml
+- app/views/cms_admin/pages/_details.html.haml
+- app/views/cms_admin/pages/_form.html.haml
+- app/views/cms_admin/pages/_form_blocks.html.haml
+- app/views/cms_admin/pages/_toggle_link.html.haml
+- app/views/cms_admin/pages/_tree_branch.html.haml
+- app/views/cms_admin/pages/children.js.rjs
+- app/views/cms_admin/pages/edit.html.haml
+- app/views/cms_admin/pages/form_blocks.js.rjs
+- app/views/cms_admin/pages/index.html.haml
+- app/views/cms_admin/pages/new.html.haml
+- app/views/cms_admin/sections/show.html.haml
+- app/views/cms_admin/snippets/_form.html.haml
+- app/views/cms_admin/snippets/edit.html.haml
+- app/views/cms_admin/snippets/index.html.haml
+- app/views/cms_admin/snippets/new.html.haml
+- app/views/cms_content/show.xml.rxml
+- app/views/cms_content/sitemap.xml.rxml
+- app/views/layouts/cms_admin.html.haml
+- comfortable_mexican_sofa.gemspec
+- config/cms_routes.rb
+- generators/cms/cms_generator.rb
+- generators/cms/templates/README
+- generators/cms/templates/images/arrow_bottom.gif
+- generators/cms/templates/images/arrow_right.gif
+- generators/cms/templates/images/icon_attachment.gif
+- generators/cms/templates/images/icon_category.gif
+- generators/cms/templates/images/icon_draft.gif
+- generators/cms/templates/images/icon_layout.gif
+- generators/cms/templates/images/icon_move.gif
+- generators/cms/templates/images/icon_regular.gif
+- generators/cms/templates/images/icon_snippet.gif
+- generators/cms/templates/images/logo.png
+- generators/cms/templates/initializers/cms.rb
+- generators/cms/templates/initializers/paperclip.rb
+- generators/cms/templates/javascripts/codemirror_init.js
+- generators/cms/templates/javascripts/mce_init.js
+- generators/cms/templates/javascripts/utilities.js
+- generators/cms/templates/migrations/create_cms.rb
+- generators/cms/templates/stylesheets/cms_master.sass
+- init.rb
+- lib/comfortable_mexican_sofa.rb
+- lib/comfortable_mexican_sofa/acts_as_categorized.rb
+- lib/comfortable_mexican_sofa/acts_as_published.rb
+- lib/comfortable_mexican_sofa/cms_acts_as_tree.rb
+- lib/comfortable_mexican_sofa/cms_rails_extensions.rb
+- lib/comfortable_mexican_sofa/cms_tag.rb
+- lib/comfortable_mexican_sofa/cms_tags/attachment.rb
+- lib/comfortable_mexican_sofa/cms_tags/block.rb
+- lib/comfortable_mexican_sofa/cms_tags/helper.rb
+- lib/comfortable_mexican_sofa/cms_tags/page_block.rb
+- lib/comfortable_mexican_sofa/cms_tags/partial.rb
+- lib/comfortable_mexican_sofa/cms_tags/snippet.rb
+- rails/init.rb
+- test/fixtures/cms_attachment_categorizations.yml
+- test/fixtures/cms_attachments.yml
+- test/fixtures/cms_blocks.yml
+- test/fixtures/cms_categories.yml
+- test/fixtures/cms_layouts.yml
+- test/fixtures/cms_page_categorizations.yml
+- test/fixtures/cms_pages.yml
+- test/fixtures/cms_snippets.yml
+- test/fixtures/files/upload_file.txt
+- test/functional/cms_admin/attachments_controller_test.rb
+- test/functional/cms_admin/categories_controller_test.rb
+- test/functional/cms_admin/layouts_controller_test.rb
+- test/functional/cms_admin/pages_controller_test.rb
+- test/functional/cms_admin/sections_controller_test.rb
+- test/functional/cms_admin/snippets_controller_test.rb
+- test/functional/cms_content_controller_test.rb
+- test/models/cms_attachment_test.rb
+- test/models/cms_block_test.rb
+- test/models/cms_categorization_test.rb
+- test/models/cms_category_test.rb
+- test/models/cms_layout_test.rb
+- test/models/cms_page_test.rb
+- test/models/cms_snippet_test.rb
+- test/models/cms_tag_test.rb
+- test/rails_root/README
+- test/rails_root/Rakefile
+- test/rails_root/app/controllers/application_controller.rb
+- test/rails_root/app/helpers/application_helper.rb
+- test/rails_root/app/views/cms/under-development.html.haml
+- test/rails_root/app/views/complex_page/_example.html.erb
+- test/rails_root/config/boot.rb
+- test/rails_root/config/database.yml
+- test/rails_root/config/environment.rb
+- test/rails_root/config/environments/development.rb
+- test/rails_root/config/environments/production.rb
+- test/rails_root/config/environments/test.rb
+- test/rails_root/config/initializers/backtrace_silencers.rb
+- test/rails_root/config/initializers/inflections.rb
+- test/rails_root/config/initializers/mime_types.rb
+- test/rails_root/config/initializers/new_rails_defaults.rb
+- test/rails_root/config/initializers/session_store.rb
+- test/rails_root/config/locales/en.yml
+- test/rails_root/config/routes.rb
+- test/rails_root/doc/README_FOR_APP
+- test/rails_root/public/404.html
+- test/rails_root/public/422.html
+- test/rails_root/public/500.html
+- test/rails_root/public/favicon.ico
+- test/rails_root/public/images/rails.png
+- test/rails_root/public/index.html
+- test/rails_root/public/javascripts/application.js
+- test/rails_root/public/javascripts/controls.js
+- test/rails_root/public/javascripts/dragdrop.js
+- test/rails_root/public/javascripts/effects.js
+- test/rails_root/public/javascripts/prototype.js
+- test/rails_root/public/robots.txt
+- test/rails_root/public/stylesheets/sass/cms_master.sass
+- test/rails_root/script/about
+- test/rails_root/script/console
+- test/rails_root/script/dbconsole
+- test/rails_root/script/destroy
+- test/rails_root/script/generate
+- test/rails_root/script/performance/benchmarker
+- test/rails_root/script/performance/profiler
+- test/rails_root/script/plugin
+- test/rails_root/script/runner
+- test/rails_root/script/server
+- test/rails_root/vendor/plugins/.gitignore
+- test/test_helper.rb
+has_rdoc: true
+homepage: http://theworkinggroup.ca
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: cms-sofa
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 3
+summary: ComfortableMexicanSofa is a Rails Engine CMS gem
+test_files: 
+- test/functional/cms_admin/attachments_controller_test.rb
+- test/functional/cms_admin/categories_controller_test.rb
+- test/functional/cms_admin/layouts_controller_test.rb
+- test/functional/cms_admin/pages_controller_test.rb
+- test/functional/cms_admin/sections_controller_test.rb
+- test/functional/cms_admin/snippets_controller_test.rb
+- test/functional/cms_content_controller_test.rb
+- test/models/cms_attachment_test.rb
+- test/models/cms_block_test.rb
+- test/models/cms_categorization_test.rb
+- test/models/cms_category_test.rb
+- test/models/cms_layout_test.rb
+- test/models/cms_page_test.rb
+- test/models/cms_snippet_test.rb
+- test/models/cms_tag_test.rb
+- test/rails_root/app/controllers/application_controller.rb
+- test/rails_root/app/helpers/application_helper.rb
+- test/rails_root/config/boot.rb
+- test/rails_root/config/environment.rb
+- test/rails_root/config/environments/development.rb
+- test/rails_root/config/environments/production.rb
+- test/rails_root/config/environments/test.rb
+- test/rails_root/config/initializers/backtrace_silencers.rb
+- test/rails_root/config/initializers/inflections.rb
+- test/rails_root/config/initializers/mime_types.rb
+- test/rails_root/config/initializers/new_rails_defaults.rb
+- test/rails_root/config/initializers/session_store.rb
+- test/rails_root/config/routes.rb
+- test/test_helper.rb

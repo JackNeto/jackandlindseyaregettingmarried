@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+log/*
+tmp/*/*
+public/stylesheets/*
+public/javascripts/base.js
+db/development_structure.sql
+db/development.sqlite3
+db/schema.rb

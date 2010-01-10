@@ -1,0 +1,27 @@
+:javascript
+  $(document).ready(function() {
+    $('#post_title').focus();
+  })
+  
+
+
+= form.error_messages
+
+.form_element_group.horizontal
+  .form_element.text.large
+    .label= form.label :title, 'Title'
+    .field= form.text_field :title
+
+  .form_element.text_area
+    .label= form.label :content, 'Content'
+    .field= form.text_area :content, :class=> 'mceEditor'
+    
+  .form_element.text.large
+    .label= form.label :author, 'Author'
+    .field= form.text_field :author
+
+  .form_element.text.checkbox
+    .label= form.label :is_published, 'Published'
+    .field= form.check_box :is_published
+
+  

@@ -1,0 +1,117 @@
+html, body
+  height: 100%
+
+body
+  background: url(/images/bg_blue.gif)
+  text-align: center
+  
+  .body_wrapper
+    width: 958px
+    padding: 0px
+    margin: auto
+    .left
+      width: 79px
+      height: 157px
+      background: url(/images/effects_left.gif) top left no-repeat
+      float: left
+      margin-top: 70px
+    .right
+      width: 24px
+      height: 157px
+      background: url(/images/effects_right.gif) top left no-repeat
+      float: left
+      margin-top: 350px
+    .center
+      float: left
+      width: 800px
+      overflow: hidden
+      .logo
+        text-align: left
+        padding: 20px 0 5px 10px
+      .content_wrapper
+        padding: 10px
+        background: url(/images/bg_white.gif)
+        border-radius: 8px
+        -moz-border-radius: 8px
+        -webkit-border-radius: 8px
+        
+        // ----------------------------------------------------------------- Header
+        .header
+          background: #6A9968 url(/images/background_1.gif) top right repeat
+          height: 94px
+          border-radius: 5px 5px 0 0
+          -moz-border-radius: 5px 5px 0 0
+          -webkit-border-radius: 5px 5px 0 0
+          -webkit-border-top-left-radius: 5px
+          -webkit-border-top-right-radius: 5px
+          margin-bottom: 3px
+          img
+            border-left: solid #fff 3px
+            border-right: solid #fff 3px
+        // ----------------------------------------------------------------- Sub header
+        .sub_header
+          overflow: hidden
+          background: #6A9968
+          padding: 5px 15px
+          color: #fff
+          text-align: left
+          .date
+            float: right
+
+        // ---------------------------------------------------------------- Navigation
+        ul.nav
+          float: left
+          text-align: left
+          font-family: Arial,Helvetica,sans-serif
+          padding: 10px 0
+          margin-right: 10px
+          li
+            a
+              display: block
+              color: #3B7C3F
+              padding: 2px 15px
+              width: 90px
+              text-decoration: none
+              
+            a:hover, a.active
+              background: #fff url(/images/arrow_green.gif) -10px 6px no-repeat
+              color: #3B7C3F
+              text-decoration: underline
+          li.divider
+            border-bottom: solid #3B7C3F 1px
+            margin-bottom: 2px
+            height: 1px
+
+        // ---------------------------------------------------------------- Content
+        .content
+          position: relative
+          overflow: hidden
+          text-align: left
+          padding: 20px 30px
+          border: solid #ddd 1px
+          margin: 10px 0 10px 10px
+          background: #fff
+          .posts
+            .post
+              overflow: hidden
+              margin-bottom: 30px
+            .post_date
+              margin: -5px 0 5px 0
+              text-transform: uppercase
+              font-size: 9px
+              color: #777
+            .author
+              float: right
+              clear: both
+              color: #256885
+            
+        // ----------------------------------------------------------------- Footer
+        .footer
+          clear: both
+          overflow: hidden
+          background: #6A9968
+          padding: 5px 25px
+          color: #fff
+          border-bottom: solid #fff 3px
+          .date
+            float: right

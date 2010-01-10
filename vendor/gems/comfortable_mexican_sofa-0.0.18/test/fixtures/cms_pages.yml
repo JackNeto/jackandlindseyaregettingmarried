@@ -1,0 +1,38 @@
+default: &page
+  label: Home Page
+  cms_layout: default
+  parent:
+  slug:
+  full_path: ''
+  children_count: 1
+  position: 0
+  published_at: <%= 10.days.ago %>
+  unpublished_at:
+  is_section: 0
+  
+complex:
+  <<: *page
+  parent: default
+  label: Complex Page
+  cms_layout: nested
+  slug: complex-page
+  full_path: 'complex-page'
+  is_section: 1
+  
+unpublished:
+  <<: *page
+  parent: default
+  label: Unpublished Page
+  cms_layout: default
+  slug: unpublished
+  full_path: 'unpublished'
+  published_at: <%= 10.days.from_now %>
+  
+under_development:
+  <<: *page
+  parent: default
+  label: Page under development
+  slug: 'under-development'
+  full_path: 'under-development'
+  
+  

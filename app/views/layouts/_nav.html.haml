@@ -1,0 +1,13 @@
+%ul.nav
+  %li= active_link_to 'Home', '/'
+  %li= active_link_to 'About us', '/about-us'
+  %li= active_link_to 'Our family', our_family_path
+  %li= active_link_to 'Location', '/location'
+  %li.divider
+  - if logged_in?
+    %li= active_link_to 'Dashboard', dashboard_path
+    - if current_user.is_admin?
+      %li= link_to 'Manage content', '/cms-admin/posts'
+    %li= active_link_to 'Logout', logout_path, :method => :delete
+  - else
+    %li= active_link_to 'Login', login_path

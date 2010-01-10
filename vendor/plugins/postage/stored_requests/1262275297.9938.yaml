@@ -1,0 +1,16 @@
+--- 
+:url: http://twg.postageapp.local/v.1.0/send_message.json
+:arguments: 
+  :headers: 
+    Subject: 
+    From: 
+  :content: 
+    text/plain: 
+  :plugin_version: 0.0.4
+  :template: email-confirmation
+  :uid: "1262275297.9938"
+  :variables: 
+    :validate_email_subscriptions_url: !str 
+      str: http://wgtg-subscription.local/subscriptions/validate_email?validation_key=0ebc579d274ad569b1e6bd88ba8872d71ece5873
+      "@_rails_html_safe": false
+  :recipients: jack@twg.ca

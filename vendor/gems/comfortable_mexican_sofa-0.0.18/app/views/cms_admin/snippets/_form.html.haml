@@ -1,0 +1,10 @@
+= form.error_messages
+
+.form_element_group.horizontal
+  .form_element.text.large
+    .label= form.label :label, 'Title'
+    .field= form.text_field :label
+
+  .form_element.text_area
+    .label= form.label :content, 'Content'
+    .field= form.text_area :content, :class=> 'mceEditor'

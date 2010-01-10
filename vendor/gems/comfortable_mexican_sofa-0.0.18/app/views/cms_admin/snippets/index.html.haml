@@ -1,0 +1,26 @@
+= link_to 'Add New Post', new_cms_admin_snippet_path, :class => 'big_button'
+
+%h2 Posts
+
+= will_paginate @snippets
+
+%table.formatted
+  %tr
+    %th.first{:colspan => 2} Title
+    %th Posted on
+    %th.last
+  
+  - @snippets.each do |snippet|
+    %tr
+      %td
+        .icon
+      %td.main
+        = link_to snippet.label.titleize, edit_cms_admin_snippet_path(snippet), :class => 'label'
+      %td= snippet.created_at.to_s(:long_html)
+      %td.action_links
+        = link_to 'Edit', edit_cms_admin_snippet_path(snippet)
+        |
+        = link_to 'Remove', cms_admin_snippet_path(snippet), :method => 'delete', :confirm => 'Are you sure you want to remove this snippet?'
+        
+= will_paginate @snippets
+        

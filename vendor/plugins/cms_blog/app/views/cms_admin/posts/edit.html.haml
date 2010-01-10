@@ -1,0 +1,10 @@
+= link_to 'Add New Post', new_cms_admin_post_path, :class => 'big_button'
+
+%h2 Editing Post
+
+- form_for :post, :url => {:action => :update}, :html => {:method => :put} do |form|
+  = render :partial => form
+  .submit
+    = form.submit 'Update Post'
+    or 
+    = link_to 'Return to List', cms_admin_posts_path

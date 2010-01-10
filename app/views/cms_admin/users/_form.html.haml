@@ -1,0 +1,47 @@
+:javascript
+  $(document).ready(function() {
+    $('#user_first_name').focus();
+  })
+  
+  
+= form.error_messages
+
+.form_element_group.horizontal
+  .form_element.text
+    .label= form.label :first_name, 'First name'
+    .field= form.text_field :first_name
+
+  .form_element.text
+    .label= form.label :last_name, 'Last name'
+    .field= form.text_field :last_name
+
+  .form_element.text
+    .label= form.label :email, 'email'
+    .field= form.text_field :email, :autocomplete => :off
+
+  .form_element.image
+    .label= form.label :avatar, 'Photo'
+    .field  
+      = image_tag @user.avatar.url(:thumb)
+      = form.file_field :avatar
+      - if @user.avatar?
+        %br/
+        = link_to 'Delete photo', delete_avatar_cms_admin_user_path(@user), :method => :delete, :confirm => 'Are you sure?'
+
+  .form_element.text
+    .label= form.label :password, 'password'
+    .field= form.password_field :password, :autocomplete => :off
+
+  .form_element.text
+    .label= form.label :password_confirmation, 'Password confirmation'
+    .field= form.password_field :password_confirmation, :autocomplete => :off
+
+
+  .form_element.text
+    .label= form.label :relationship, 'relationship'
+    .field= form.text_field :relationship
+
+  .form_element.text_area
+    .label= form.label :profile, 'Profile'
+    .field= form.text_area :profile, :class=> 'mceEditor'
+    

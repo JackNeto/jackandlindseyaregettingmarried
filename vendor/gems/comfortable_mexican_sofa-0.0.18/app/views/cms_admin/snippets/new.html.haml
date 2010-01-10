@@ -1,0 +1,8 @@
+%h2 New Post
+
+- form_for :snippet, :url => {:action => :create } do |form|
+  = render :partial => form
+  .submit
+    = form.submit 'Create Post'
+    or 
+    = link_to 'Return to List', cms_admin_snippets_path

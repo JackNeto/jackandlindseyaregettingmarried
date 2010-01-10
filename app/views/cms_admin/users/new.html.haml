@@ -1,0 +1,8 @@
+%h2 New User
+
+- form_for :user, :url => {:action => :create }, :html => {:multipart => true}  do |form|
+  = render :partial => form
+  .submit
+    = form.submit 'Create User'
+    or 
+    = link_to 'Return to List', cms_admin_users_path

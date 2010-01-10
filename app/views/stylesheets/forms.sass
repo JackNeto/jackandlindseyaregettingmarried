@@ -1,0 +1,95 @@
+// -------------------------------------------------------------------- Forms
+.form_error
+  padding: 10px 50px
+  text-align: center
+  font-size: 116%
+  font-weight: bold
+  margin-bottom: 10px
+  color: #dd3131
+  background: url(/css_images/flash_error_bg.gif) bottom left repeat-x
+  border: 1px solid #f1adad
+
+form.formatted
+  .form_element
+    overflow: hidden
+    padding: 7px 7px 7px 0px
+    clear: both
+    .label
+      width: 30%
+      font-size: 12px
+      float: left
+      color: #777
+    .value
+      width: 70%
+      float: left
+      .errors
+        font-size: 85%
+        color: #E30E0E
+      .description
+        font-size: 85%
+        line-height: 15px
+        color: #888
+        font-style: italic
+    .value.offset
+      input
+        margin-left: 25px
+        
+  .text_field_element, .password_field_element
+    .value
+      input
+        border: solid #acacac 1px
+        padding: 2px
+        width: 90%
+      .fieldWithErrors
+        input
+          border: solid #eea9a9 1px
+          background: url(/css_images/gradient_white_red.gif) left bottom repeat-x
+
+  .radio_button_element
+    .value
+    
+      .radio_button
+        white-space: nowrap
+        clear: both
+        input
+          vertical-align: center
+          
+  .check_box_element
+    .value
+      input
+        vertical-align: center
+        margin-right: 5px
+        
+  .text_area_element
+    textarea
+      border: solid #acacac 1px
+      padding: 2px
+      width: 90%
+
+  .select_element
+    select
+      width: auto
+    
+  .submit_element
+    line-height: 40px
+    padding-left: 30%
+    .activity_indicator
+      font-size: 13px
+      line-height: 30px
+      img
+        margin-right: 10px
+        
+        
+  .image_preview
+    margin-left: 30%
+    margin-top: 5px
+    width: 70%
+    overflow: hidden
+    _height: 1%
+    .photo
+      float: left
+      margin: 0
+      width: auto
+    .links
+      clear: both
+      font-size: 10px

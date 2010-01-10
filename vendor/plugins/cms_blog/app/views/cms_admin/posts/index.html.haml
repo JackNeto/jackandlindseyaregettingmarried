@@ -1,0 +1,29 @@
+= link_to 'Add New Post', new_cms_admin_post_path, :class => 'big_button'
+
+%h2 Blog posts
+
+= will_paginate @posts
+
+%table.formatted
+  %tr
+    %th.first{:colspan => 2} Title
+    %th Status
+    %th Author
+    %th Last updated on
+    %th.last
+  
+  - @posts.each do |post|
+    %tr
+      %td
+        .icon
+      %td.main
+        = link_to post.title.titleize, edit_cms_admin_post_path(post), :class => 'label'
+      %td= post.is_published? ? '<span class="published">PUBLISHED</span>' : '<span class="draft">DRAFT</span>'
+      %td= post.author
+      %td.date= post.created_at.to_s(:long_html)
+      %td.action_links
+        = link_to 'Edit', edit_cms_admin_post_path(post)
+        |
+        = link_to 'Remove', cms_admin_post_path(post), :method => 'delete', :confirm => 'Are you sure you want to remove this post?'
+        
+= will_paginate @posts

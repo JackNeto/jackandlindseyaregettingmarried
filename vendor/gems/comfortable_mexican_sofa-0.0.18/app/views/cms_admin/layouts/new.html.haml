@@ -1,0 +1,8 @@
+%h2 New Layout
+
+- form_for :layout, :url => {:action => :create } do |form|
+  = render :partial => form
+  .submit
+    = form.submit 'Create Layout'
+    or 
+    = link_to 'Return to List', cms_admin_layouts_path

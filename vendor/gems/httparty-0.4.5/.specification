@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-09-12 00:00:00 -04:00
+date: 2009-09-15 00:00:00 -04:00
 default_executable: httparty
 dependencies: 
 - !ruby/object:Gem::Dependency 
@@ -74,6 +74,7 @@ files:
 - lib/httparty/core_extensions.rb
 - lib/httparty/exceptions.rb
 - lib/httparty/module_inheritable_attributes.rb
+- lib/httparty/parsers.rb
 - lib/httparty/request.rb
 - lib/httparty/response.rb
 - lib/httparty/version.rb
@@ -114,10 +115,10 @@ required_rubygems_version: !ruby/object:Gem::Requirement
   version: 
 requirements: []
 
-rubyforge_project: 
+rubyforge_project: httparty
 rubygems_version: 1.3.5
 signing_key: 
-specification_version: 2
+specification_version: 3
 summary: Makes http fun! Also, makes consuming restful web services dead easy.
 test_files: 
 - spec/httparty/cookie_hash_spec.rb

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
+  before_filter :set_time_zone
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user, :logged_in?
   
@@ -89,5 +90,11 @@ protected
     session[:return_to] = nil
   end
   
+  # -- Time Zone Management -------------------------------------------------
+
+  def set_time_zone
+    # FUTURE: Set based on user local settings
+    Time.zone = 'Eastern Time (US & Canada)'
+  end
   
 end

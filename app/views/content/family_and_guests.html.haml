@@ -1,1 +1,12 @@
 %h1 Family and guests
+
+
+%table.user_profile
+  - @users.each do |user|
+    %tr
+      %td.avatar= image_tag user.avatar.url
+      %td
+        .name= user.name
+        - unless user.relationship.blank?
+          .relationship (#{user.relationship})
+      .profile= user.profile

@@ -4,6 +4,6 @@ class ContentController < ApplicationController
   end
   
   def family_and_guests
-    
+    @users = User.all(:conditions => "role != 'admin'")
   end
 end

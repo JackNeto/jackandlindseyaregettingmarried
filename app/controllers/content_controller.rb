@@ -3,7 +3,7 @@ class ContentController < ApplicationController
     @posts = CmsPost.published.all(:order => 'created_at DESC')
   end
   
-  def our_family
+  def family_and_guests
     
   end
 end

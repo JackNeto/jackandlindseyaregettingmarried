@@ -23,7 +23,7 @@ ActionController::Routing::Routes.draw do |map|
     :conditions => { :method => :get }
 
   map.with_options :controller => 'content', :conditions => {:method => :get} do |content|
-    content.our_family '/our-family', :action => 'our_family'
+    content.family_and_guests '/family-and-guests', :action => 'family_and_guests'
   end
   
   map.namespace :cms_admin, :path_prefix => 'cms-admin' do |cms_admin|

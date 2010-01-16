@@ -1,0 +1,6 @@
+- if comment.is_approved?
+  .published APPROVED
+  .small_action= link_to_remote 'Unapprove', :url => unapprove_cms_admin_comment_path(comment), :method => :put, :before => "$('##{dom_id(comment, :status)}').html('unapproving ...')", :update => dom_id(comment, :status)
+- else
+  .unapproved NOT APPROVED
+  .small_action= link_to_remote 'Approve', :url => approve_cms_admin_comment_path(comment), :method => :put, :before => "$('##{dom_id(comment, :status)}').html('approving ...')", :update => dom_id(comment, :status)

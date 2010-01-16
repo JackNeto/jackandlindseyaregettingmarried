@@ -1,0 +1,12 @@
+.post
+  %h1= post.title
+  .details
+    Posted by
+    .author= post.author
+    .post_date #{time_ago_in_words(post.updated_at)} ago
+    .comments_nav 
+      = link_to pluralize(post.cms_comments_count, 'comment'), post_path(post)
+      |
+      = link_to 'add comment', post_path(post)+'#new_cms_comment'
+  = post.content
+  .author by #{post.author}

@@ -1,0 +1,6 @@
+- remote_form_for :comment, :url => {:action => :update}, :update => dom_id(@comment, :content), :method => :put do |form|
+  = render :partial => form
+  .submit
+    = form.submit 'Update Comment'
+    or
+    = link_to_remote 'Cancel', :url => cms_admin_comment_path(@comment), :method => :get, :update => dom_id(@comment, :content)

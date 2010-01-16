@@ -7,14 +7,18 @@ class CmsPost < ActiveRecord::Base
   # -- Validations ----------------------------------------------------------
   
   validates_presence_of   :content
-  validates_uniqueness_of :title
+  validates_uniqueness_of :name
   
   # -- Scopes ----------------------------------------------------------
 
   named_scope :published, :conditions => {:is_published => true }
   
   
-  # -- Class Methods --------------------------------------------------------
+  # -- Instance Methods --------------------------------------------------------
+  
+  def to_param
+    "#{self.id}-#{title.slugify}"
+  end
   
   
 end

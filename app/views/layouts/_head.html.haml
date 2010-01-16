@@ -1,6 +1,6 @@
 %title= header_title
 
-= stylesheet_link_tag 'reset', 'typography', 'structure', 'forms', 'common', 'content', 'user', :cache => '_base'
+= stylesheet_link_tag 'reset', 'typography', 'structure', 'forms', 'common', 'content', 'users', 'posts', :cache => '_base'
 = javascript_include_tag 'jquery', 'jquery.countdown.min', 'application', :cache => 'base'
-
+= auto_discovery_link_tag :rss, posts_url(:rss), :title => "Jack and Lindsey are getting married!"
 = yield :head

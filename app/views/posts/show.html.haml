@@ -1,0 +1,28 @@
+.post
+  %h1= @post.title
+  .details
+    Posted by
+    .author= @post.author
+    .post_date #{time_ago_in_words(@post.updated_at)} ago
+  = @post.content
+
+.comments
+  - @post.cms_comments.approved.each do |comment|
+    .comment
+      .details
+        .author= comment.name
+        said
+        .post_date #{time_ago_in_words(comment.updated_at)} ago
+      = simple_format auto_link(comment.content, :all, :target => '_blank')
+      
+      
+
+%h2 Post a Comment or Question
+- formatted_form_for @comment, :url => post_comments_path(@post) do |f|
+  = f.error_messages
+
+  = f.text_field :name, :label => 'Your name', :value => (current_user.name if logged_in?)
+  = f.text_area :content, :label => 'Your comment', :rows => 5
+  = text_field_tag :zip_code, '', :style => 'display:none'
+  
+  = f.submit "Submit"

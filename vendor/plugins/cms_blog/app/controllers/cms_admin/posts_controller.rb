@@ -1,5 +1,5 @@
 class CmsAdmin::PostsController < CmsAdmin::BaseController
- 
+
   before_filter :load_post, :only => [:edit, :update, :destroy]
 
   def index

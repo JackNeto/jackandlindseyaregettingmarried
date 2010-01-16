@@ -9,6 +9,7 @@
     %th.first{:colspan => 2} Title
     %th Status
     %th Author
+    %th Comments
     %th Last updated on
     %th.last
   
@@ -20,6 +21,7 @@
         = link_to post.title.titleize, edit_cms_admin_post_path(post), :class => 'label'
       %td= post.is_published? ? '<span class="published">PUBLISHED</span>' : '<span class="draft">DRAFT</span>'
       %td= post.author
+      %td.center= link_to post.cms_comments_count, cms_admin_comments_path()
       %td.date= post.created_at.to_s(:long_html)
       %td.action_links
         = link_to 'Edit', edit_cms_admin_post_path(post)

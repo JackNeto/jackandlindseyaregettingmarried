@@ -1,0 +1,20 @@
+:javascript
+  $(document).ready(function() {
+    $('#comment_content').focus();
+  })
+  
+
+
+= form.error_messages
+
+.form_element_group.horizontal
+  .form_element.text
+    .label= form.label :name, 'Author'
+    .field= form.text_field :name
+
+  .form_element.text_area
+    .label= form.label :content, 'Content'
+    .field= form.text_area :content, :rows => 5
+    
+
+  

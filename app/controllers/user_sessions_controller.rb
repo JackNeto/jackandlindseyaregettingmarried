@@ -3,6 +3,7 @@ class UserSessionsController < ApplicationController
   before_filter :require_user, :only => :destroy
   
   def new
+    session[:return_to] = nil
     @user_session = UserSession.new
   end
   

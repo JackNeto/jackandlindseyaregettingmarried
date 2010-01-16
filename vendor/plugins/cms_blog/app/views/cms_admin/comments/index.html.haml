@@ -1,0 +1,22 @@
+%h2 Comments on your blog
+
+= will_paginate @comments
+
+%table.formatted
+  %tr
+    %th Comment
+    %th Status
+    %th Last updated on
+    %th.last
+  
+  - @comments.each do |comment|
+    %tr
+      %td.main.comment{:id => dom_id(comment, :content)}= render :partial => 'content', :locals => {:comment => comment}
+      %td.center{:id => dom_id(comment, :status)}= render :partial => 'status', :locals => {:comment => comment}
+      %td.date= comment.created_at.to_s(:long_html)
+      %td.action_links
+        = link_to_remote 'Edit', :url => edit_cms_admin_comment_path(comment), :method => :get, :update => dom_id(comment, :content)
+        |
+        = link_to 'Remove', cms_admin_comment_path(comment), :method => 'delete', :confirm => 'Are you sure you want to remove this comment?'
+        
+= will_paginate @comments

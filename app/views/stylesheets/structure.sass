@@ -70,17 +70,39 @@ body
               display: block
               color: #3B7C3F
               padding: 2px 15px
-              width: 90px
               text-decoration: none
               
             a:hover, a.active
               background: #fff url(/images/arrow_green.gif) -10px 6px no-repeat
               color: #3B7C3F
               text-decoration: underline
+            a.rss
+              padding-left: 35px
+              background: url(/images/feed-icon-14x14.png) 15px 1px no-repeat
+              margin-top: 50px
+              
           li.divider
             border-bottom: solid #3B7C3F 1px
             margin-bottom: 2px
             height: 1px
+
+        // --------------------------------------------------------- Flash Messages
+        .flash_message
+          position: relative
+          overflow: hidden
+          margin: 10px
+          padding: 5px 20px
+          font: 16px Georgia, serif
+          background: #e6f0fa
+          color: #fff
+          a
+            color: #0072bc
+        .flash_message.error
+          background: #B70008
+        .flash_message.pending
+          background: #d99134
+        .flash_message.notice
+          background: #005826
 
         // ---------------------------------------------------------------- Content
         .content
@@ -91,20 +113,8 @@ body
           border: solid #ddd 1px
           margin: 10px 0 10px 10px
           background: #fff
-          .posts
-            .post
-              overflow: hidden
-              margin-bottom: 30px
-            .post_date
-              margin: -5px 0 5px 0
-              text-transform: uppercase
-              font-size: 9px
-              color: #777
-            .author
-              float: right
-              clear: both
-              color: #256885
-            
+
+          
         // ----------------------------------------------------------------- Footer
         .footer
           clear: both

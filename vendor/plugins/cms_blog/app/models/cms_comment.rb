@@ -2,16 +2,24 @@ class CmsComment < ActiveRecord::Base
   
   # -- Relationships --------------------------------------------------------
   
-  belongs_to :cms_post
+  belongs_to :cms_post, :counter_cache => true
   
   # -- Validations ----------------------------------------------------------
   
   validates_presence_of   :content
-  validates_uniqueness_of :name
   
   # -- Scopes ----------------------------------------------------------
+
+  named_scope :approved, :conditions => {:is_approved => true }
   
-  # -- Class Methods --------------------------------------------------------
+  # -- instance Methods --------------------------------------------------------
   
+  def approve
+    update_attribute(:is_approved, true)
+  end
+  
+  def unapprove
+    update_attribute(:is_approved, false)
+  end
   
 end

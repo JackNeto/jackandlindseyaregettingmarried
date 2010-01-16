@@ -13,3 +13,5 @@
     %li= active_link_to 'Logout', logout_path, :method => :delete
   - else
     %li= active_link_to 'Login', login_path
+
+  %li= link_to 'RSS feed', posts_path(:rss), :class => 'rss'

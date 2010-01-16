@@ -22,6 +22,10 @@ ActionController::Routing::Routes.draw do |map|
     :action     => 'dashboard',
     :conditions => { :method => :get }
 
+  map.resources :posts do |post|
+    post.resources :comments
+  end
+  
   map.with_options :controller => 'content', :conditions => {:method => :get} do |content|
     content.family_and_guests '/family-and-guests', :action => 'family_and_guests'
   end

@@ -1,10 +1,2 @@
 .posts
-  - @posts.each do |post|
-    .post
-      %h1= post.title
-      .post_date
-        = post.updated_at.to_s(:long_html)
-      = post.content
-      .author
-        by
-        = post.author
+  = render :partial => 'post', :collection => @posts

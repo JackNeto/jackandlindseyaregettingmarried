@@ -15,6 +15,7 @@ class CmsComment < ActiveRecord::Base
   # -- AR Callbacks ---------------------------------------------------------
   
   after_save :update_approved_comments_counter, :update_comments_counter
+  after_destroy :update_approved_comments_counter, :update_comments_counter
   
   # -- Instance Methods --------------------------------------------------------
   

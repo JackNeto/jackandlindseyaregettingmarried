@@ -1,4 +1,7 @@
 .details 
   .author #{comment.name} 
   said #{time_ago_in_words(comment.created_at)} ago
+  .title
+    In response to 
+    %strong= comment.cms_post.title
 = simple_format auto_link(comment.content, :all, :target => '_blank')

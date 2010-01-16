@@ -6,6 +6,7 @@ class CreateCmsBlog < ActiveRecord::Migration
       t.text    :content
       t.string  :author
       t.integer :cms_comments_count
+      t.integer :cms_approved_comments_count
       t.boolean :is_published, :null => false, :default => false
       t.timestamps
     end

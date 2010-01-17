@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:notice] = "Login successful!"
+      flash[:notice] = "Hi #{current_user.first_name}, you are now logged in"
       redirect_back_or_default dashboard_path
     else
       render :action => :new

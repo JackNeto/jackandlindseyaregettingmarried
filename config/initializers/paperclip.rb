@@ -4,7 +4,7 @@ class Paperclip::Attachment
       :url           => "/:attachment/:id/:style/:filename",
       :path          => ":rails_root/public:url",
       :styles        => {},
-      :default_url   => "/:attachment/default_:style.png",
+      :default_url   => "/:attachment/default_:style.gif",
       :default_style => :original,
       :validations   => [],
       :storage       => :filesystem,

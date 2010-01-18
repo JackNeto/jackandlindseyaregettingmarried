@@ -1,0 +1,6 @@
+%p
+  %strong= @comment.name
+  posted a comment in reply to 
+  %strong= link_to @comment.cms_post.title, post_url(@comment.cms_post)
+
+.comment= simple_format auto_link(@comment.content, :all, :target => '_blank')

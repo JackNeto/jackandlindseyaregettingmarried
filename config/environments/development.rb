@@ -17,12 +17,11 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 
-WGTG_MAILCHIMP_LIST = 'TWG test list'
-
+ADMIN_EMAILS = %w{jack@twg.ca}
 
 # Action mailer stuff
-HOST_NAME = "wgtg-subscription.local"
+HOST_NAME = "jackandlindseyaregettingmarried.local"
 SITE_URL = "http://#{HOST_NAME}"
-FROM_EMAIL = 'We Give to Get <noreply@twg.ca>'
+FROM_EMAIL = 'Jack & Lindsey <noreply@jackandlindseyaregettingmarried.ca>'
 config.action_mailer.default_url_options = { :host => HOST_NAME }
 

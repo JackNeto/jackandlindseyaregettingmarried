@@ -40,14 +40,14 @@ end
   task :test => :environment do 
     
     puts "Attempting to contact PostageApp..."
-    response = Postage::Request.new(:get_project_info).call!
+    response = Postage::Request.new(:get_project_info).call
     
     unless response.blank?
       
       if response.success?
-        project_name  = response.data[:project][:name]
-        project_url   = response.data[:project][:url]
-        user_emails   = response.data[:project][:users]
+        project_name  = response.data['project']['name']
+        project_url   = response.data['project']['url']
+        user_emails   = response.data['project']['users']
         
         puts %{
   Found Project:
@@ -122,7 +122,7 @@ def send_test_message(recipients)
     recipients_with_variables[email] = {'name' => name}
   end
   
-  Postage.send_message(
+  Postage.call(:send_message,
     :message => {
       'text/html'  => HTML_MESSAGE,
       'text/plain' => TEXT_MESSAGE

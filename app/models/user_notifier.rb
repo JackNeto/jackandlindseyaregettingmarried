@@ -1,11 +1,5 @@
 class UserNotifier < Postage::Mailer
   
-  def email_confirmation(user)
-    recipients            user.email
-    postageapp_variables  :validate_email_subscriptions_url => validate_email_subscriptions_url(:validation_key => user.validation_key)
-    postageapp_template   'email-confirmation'
-  end
-
   def invitation(user, referrer_email)
     setup_email(user)
     # postageapp_variables  :validate_email_subscriptions_url => validate_email_subscriptions_url(:validation_key => user.validation_key),

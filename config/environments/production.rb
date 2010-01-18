@@ -28,11 +28,11 @@ config.action_view.cache_template_loading            = true
 # config.threadsafe!
 
 
-WGTG_MAILCHIMP_LIST = 'WeGiveToGet.com Subscriber'
+ADMIN_EMAILS = %w{jack@twg.ca lbmdonovan@gmail.com lDonovan@cds.ca}
 
 
 # Action mailer stuff
-HOST_NAME = "charities.wegivetoget.com"
+HOST_NAME = "jackandlindseyaregettingmarried.ca"
 SITE_URL = "http://#{HOST_NAME}"
-FROM_EMAIL = 'We Give to Get <noreply@wegivetoget.com>'
+FROM_EMAIL = 'Jack & Lindsey <noreply@jackandlindseyaregettingmarried.ca>'
 config.action_mailer.default_url_options = { :host => HOST_NAME }

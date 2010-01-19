@@ -7,7 +7,7 @@ class CmsPost < ActiveRecord::Base
   # -- Validations ----------------------------------------------------------
   
   validates_presence_of   :content
-  validates_uniqueness_of :name
+  validates_uniqueness_of :title
   
   # -- Scopes ----------------------------------------------------------
 

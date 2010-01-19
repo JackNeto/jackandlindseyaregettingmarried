@@ -2,7 +2,7 @@ $().ready(function() {
   $('textarea.mceEditor').tinymce({
     // Location of TinyMCE script
     script_url : '/javascripts/tiny_mce/tiny_mce.js',
-    content_css : "/stylesheets/reset.css, /stylesheets/typography.css",
+    content_css : "/stylesheets/reset.css, /stylesheets/typography.css, /stylesheets/content.css",
 
     // General options
     theme : "advanced",
@@ -12,8 +12,8 @@ $().ready(function() {
 
 
     // Theme options
-    theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,outdent,indent,blockquote,|,formatselect,fontselect,fontsizeselect,forecolor,backcolor,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code",
-    theme_advanced_buttons2 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+    theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,|,outdent,indent,blockquote,|,formatselect,fontselect,fontsizeselect,forecolor,backcolor,|,undo,redo,",
+    theme_advanced_buttons2 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,link,unlink,anchor,image,cleanup,help,code,|,fullscreen",
     theme_advanced_buttons3 : '',
     theme_advanced_toolbar_location : "top",
     theme_advanced_toolbar_align : "left",

@@ -7,7 +7,8 @@ $().ready(function() {
     // General options
     theme : "advanced",
     plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
-    extended_valid_elements : "iframe[src|width|height|name|align|frameborder],table[valign]",
+    extended_valid_elements : "iframe[src|width|height|name|align|frameborder],table[valign],a[rel|rev|charset|hreflang|tabindex|accesskey|type|"
+    + "name|href|target|title|class|onfocus|onblur|onmouseover|onmouseout]",
 
 
 

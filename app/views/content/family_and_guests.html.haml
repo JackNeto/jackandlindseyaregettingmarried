@@ -1,12 +1,13 @@
 %h1 Family and guests
 
+= @cms_page.content
 
-%table.user_profile
-  - @users.each do |user|
-    %tr
-      %td.avatar= image_tag user.avatar.url
-      %td
+- @users.in_groups_of(4, false).each do |group|
+  .users
+    - group.each do |user|
+      .user
+        .avatar= image_tag user.avatar.url
         .name= user.name
         - unless user.relationship.blank?
-          .relationship (#{user.relationship})
-      .profile= user.profile
+          .relationship= user.relationship
+  

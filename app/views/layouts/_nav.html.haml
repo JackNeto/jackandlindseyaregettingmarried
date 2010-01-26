@@ -8,7 +8,7 @@
   %li.divider
   - if logged_in?
     %li= active_link_to 'Dashboard', dashboard_path
-    - if current_user.is_admin?
+    - if session_user.is_admin?
       %li= link_to 'Manage content', '/cms-admin/posts'
     %li= active_link_to 'Logout', logout_path, :method => :delete
   - else

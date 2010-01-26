@@ -1,10 +1,9 @@
-%h1 Dashboard for #{current_user.name}
+%h1 Dashboard for #{session_user.name}
 
 %table.user_profile
   %tr
-    %td.avatar= image_tag current_user.avatar.url
+    %td.avatar= image_tag session_user.avatar.url
     %td
-      .name= current_user.name
-      - unless current_user.relationship.blank?
-        .relationship (#{current_user.relationship})
-      .profile= current_user.profile
+      .name= session_user.name
+      - unless session_user.relationship.blank?
+        .relationship (#{session_user.relationship})

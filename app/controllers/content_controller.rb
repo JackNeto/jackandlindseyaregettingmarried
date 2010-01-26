@@ -4,6 +4,7 @@ class ContentController < ApplicationController
   end
   
   def family_and_guests
-    @users = User.all(:conditions => "role != 'admin'")
+    @users = User.all(:conditions => {:show_in_family_page => true}, :order => :position)
+    @cms_page = CmsPage.find_by_slug('family-and-guests')
   end
 end

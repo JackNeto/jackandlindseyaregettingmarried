@@ -1,13 +1,15 @@
 class CmsAdmin::UsersController < CmsAdmin::BaseController
  
   before_filter :load_user, :only => [:edit, :update, :destroy, :delete_avatar]
+  before_filter :build_user, :only => [:new, :create]
 
   def index
-    @users = User.paginate :order => 'first_name, last_name', :page => params[:page]
+    @users = User.paginate :order => 'position, first_name, last_name', :page => params[:page]
   end
 
   def new
-    # ...
+    @user.is_stub = true
+    @user.show_in_family_page = true
   end
 
   def edit
@@ -15,9 +17,9 @@ class CmsAdmin::UsersController < CmsAdmin::BaseController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user.email_validation_key  = Wristband::Support.random_salt.gsub(/[^A-Za-z0-9]/,'')
     @user.save!
-
+    @user.update_attribute(:position, @user.id) if @user.position.blank?
     flash[:notice] = 'User created'
     redirect_to :action => :index
 
@@ -50,6 +52,10 @@ class CmsAdmin::UsersController < CmsAdmin::BaseController
   end
   
 protected
+
+  def build_user
+    @user = User.new(params[:user])
+  end
 
   def load_user
     @user = User.find_by_id(params[:id])

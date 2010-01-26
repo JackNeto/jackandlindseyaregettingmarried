@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resource :user_session
+  map.resource :sessions
 
   map.home  '/',  
     :controller => 'content', 
@@ -8,12 +8,12 @@ ActionController::Routing::Routes.draw do |map|
     :conditions => { :method => :get }
 
   map.login  '/login',  
-    :controller => 'user_sessions', 
+    :controller => 'sessions', 
     :action     => 'new',
     :conditions => { :method => :get }
 
   map.logout  '/logout',  
-    :controller => 'user_sessions', 
+    :controller => 'sessions',
     :action     => 'destroy',
     :conditions => { :method => :delete }
 

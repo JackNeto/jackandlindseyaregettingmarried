@@ -289,6 +289,11 @@ table.formatted
   .form_element.time, .form_element.date, .form_element.checkbox
     select, input
       width: auto
+  .form_element.checkbox
+    .label, .field
+      float: left
+      line-height: 18px
+      width: auto
   
 .form_element_group.horizontal
   .form_element
@@ -296,7 +301,6 @@ table.formatted
       width: 90px
       float: left
       text-align: right
-      line-height: 20px
     .field
       margin-left: 100px
   .form_element.large
@@ -307,13 +311,10 @@ table.formatted
       input
         font-size: 16px
   .form_element.checkbox
-    label
-      font-size: 16px
-      line-height: 26px
-    .field
-      input
-        font-size: 16px
-
+    .label, .field
+      float: left
+      line-height: 18px
+      width: auto
   .form_element.image
     .field
       img

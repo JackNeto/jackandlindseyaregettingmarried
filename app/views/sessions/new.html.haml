@@ -1,0 +1,7 @@
+%h1 Login
+ 
+- formatted_form_for @user, :url => sessions_path do |f|
+  = f.text_field :email
+  = f.password_field :password
+  = f.check_box :remember_me
+  = f.submit "Login"

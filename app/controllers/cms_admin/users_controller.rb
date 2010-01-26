@@ -20,6 +20,7 @@ class CmsAdmin::UsersController < CmsAdmin::BaseController
     @user.email_validation_key  = Wristband::Support.random_salt.gsub(/[^A-Za-z0-9]/,'')
     @user.save!
     @user.update_attribute(:position, @user.id) if @user.position.blank?
+    @user.add_friendships(params[:friends]) unless params[:friends].blank?
     flash[:notice] = 'User created'
     redirect_to :action => :index
 
@@ -29,7 +30,7 @@ class CmsAdmin::UsersController < CmsAdmin::BaseController
 
   def update
     @user.update_attributes!(params[:user])
-
+    @user.add_friendships(params[:friends]) unless params[:friends].blank?
     flash[:notice] = 'User updated'
     redirect_to :action => :index
 

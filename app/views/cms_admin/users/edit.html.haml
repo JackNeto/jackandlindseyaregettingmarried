@@ -2,7 +2,7 @@
 
 %h2 Editing User
 
-- form_for :user, :url => {:action => :update}, :html => {:method => :put, :multipart => true}  do |form|
+- form_for :user, :url => {:action => :update}, :html => {:onsubmit => "$('#friends option').attr('selected', 'selected')", :method => :put, :multipart => true}  do |form|
   = render :partial => form
   .submit
     = form.submit 'Update User'

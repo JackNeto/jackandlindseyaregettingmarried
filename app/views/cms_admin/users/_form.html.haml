@@ -3,6 +3,12 @@
     $('#user_first_name').focus();
   })
   
+  function move_friends(src, dst) {
+    $('#'+src+' option:selected').each(function(){
+      $('#'+dst).append(this);
+    });
+  }
+  
   
 = form.error_messages
 
@@ -63,4 +69,14 @@
     .form_element.text
       .label= form.label :relationship, 'relationship'
       .field= form.text_field :relationship
+
+  .form_element_group
+    .form_element.friendships
+      .label Connect this user with:
+      .field
+        = select_tag 'friends', options_for_select(@user.friends_for_select), :name => 'friends[]', :size =>10, :multiple => true
+        .buttons
+          = button_to_function 'Add <<', "move_friends('non_friends', 'friends')"
+          = button_to_function 'Remove >>', "move_friends('friends', 'non_friends')"
+        = select_tag 'non_friends', options_for_select(@user.non_friends_for_select), :size =>10, :multiple => true
     

@@ -1,9 +1,11 @@
 %h1 Dashboard for #{session_user.name}
 
-%table.user_profile
-  %tr
-    %td.avatar= image_tag session_user.avatar.url
-    %td
-      .name= session_user.name
-      - unless session_user.relationship.blank?
-        .relationship (#{session_user.relationship})
+
+- ([session_user]+session_user.friends).in_groups_of(4, false).each do |group|
+  .users
+    - group.each do |user|
+      .user
+        .avatar= image_tag user.avatar.url
+        .name= user.name
+        - unless user.relationship.blank?
+          .relationship= user.relationship

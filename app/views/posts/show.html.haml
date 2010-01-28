@@ -21,7 +21,7 @@
 - formatted_form_for @comment, :url => post_comments_path(@post) do |f|
   = f.error_messages
 
-  = f.text_field :name, :label => 'Your name', :value => (current_user.name if logged_in?)
+  = f.text_field :name, :label => 'Your name', :value => (session_user.name if logged_in?)
   = f.text_area :content, :label => 'Your comment', :rows => 5
   = text_field_tag :zip_code, '', :style => 'display:none'
   

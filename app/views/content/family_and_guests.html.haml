@@ -5,9 +5,5 @@
 - @users.in_groups_of(4, false).each do |group|
   .users
     - group.each do |user|
-      .user
-        .avatar= image_tag user.avatar.url
-        .name= user.name
-        - unless user.relationship.blank?
-          .relationship= user.relationship
+      = render :partial => user
   

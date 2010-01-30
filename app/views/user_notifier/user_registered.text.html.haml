@@ -1,0 +1,13 @@
+%p
+  %strong= @user.name
+  has registered on the website.
+
+%p
+  = @user.first_name
+  - if @user.friends.empty?
+    isn't connected with anybody.
+  - else
+    is connected with
+    %ul
+      = @user.friends.each do |friend|
+        %li= friend.name

@@ -1,0 +1,5 @@
+.user
+  .avatar= image_tag user.avatar.url
+  .name= user.name
+  - unless user.relationship.blank?
+    .relationship= user.relationship

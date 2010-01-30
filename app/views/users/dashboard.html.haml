@@ -1,11 +1,4 @@
 %h1 Dashboard for #{session_user.name}
 
 
-- ([session_user]+session_user.friends).in_groups_of(4, false).each do |group|
-  .users
-    - group.each do |user|
-      .user
-        .avatar= image_tag user.avatar.url
-        .name= user.name
-        - unless user.relationship.blank?
-          .relationship= user.relationship
+.users= render :partial => 'profile', :collection => ([session_user]+session_user.friends)

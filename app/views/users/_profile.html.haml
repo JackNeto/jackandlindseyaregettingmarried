@@ -1,0 +1,9 @@
+.user_profile
+  .avatar= image_tag profile.avatar.url
+  .details
+    .name= profile.name
+    - unless profile.email.blank?
+      .email= profile.email
+    - unless profile.relationship.blank?
+      .relationship= profile.relationship
+    .links= link_to 'Edit details', edit_user_path(profile)

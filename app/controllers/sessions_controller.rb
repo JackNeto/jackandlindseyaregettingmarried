@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
       else
         flash[:error] = 'Login failed. Did you mistype?'
       end
-      @user.update_attributes(:failed_login_count => @user.failed_login_count.to_i + 1, :last_request_at => Time.now)
       redirect_to login_path
     end
   end

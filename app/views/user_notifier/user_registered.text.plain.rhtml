@@ -1,0 +1,11 @@
+<%= @user.name %>  has registered on the website.
+
+
+<% if @user.friends.empty? %>
+<%= @user.first_name %> isn't connected with anybody.
+<% else %>
+<%= @user.first_name %> is connected with:
+  <% @user.friends.each do |friend| %>
+    <%= friend.name %>
+  <% end %>
+<% end %>

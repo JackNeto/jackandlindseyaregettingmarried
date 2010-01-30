@@ -1,0 +1,13 @@
+%h1 Edit profile
+
+- formatted_form_for @user, :url => user_path(@user), :html => {:method => :put, :multipart => true} do |f|
+  = f.text_field :first_name
+  = f.text_field :last_name
+  = f.text_field :email
+  = f.text_field :relationship, :label => 'Relationship to the Bride or Groom', :autocomplete => :off
+  = f.element '&nbsp;', image_tag(@user.avatar.url(:thumb))+(@user.avatar? ? link_to('Delete photo', delete_avatar_user_path(@user), :confirm => 'Are you sure you want to delete yout photo?', :method => :delete) : '')
+  = f.file_field :avatar, :label => 'Photo'
+  = f.password_field :password, :autocomplete => :off
+  = f.password_field :password_confirmation
+  = f.submit "Update", :cancel_url => link_to('cancel', dashboard_path)
+  

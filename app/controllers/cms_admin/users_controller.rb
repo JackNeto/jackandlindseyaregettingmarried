@@ -11,7 +11,6 @@ class CmsAdmin::UsersController < CmsAdmin::BaseController
 
   def new
     @user.is_stub = true
-    @user.show_in_family_page = true
   end
 
   def edit

@@ -36,8 +36,11 @@ class UsersController < ApplicationController
         if @user.update_attributes(params[:user].merge(
           :validated_at         => Time.now.to_s(:db),
           :email_validation_key => nil,
-          :is_stub              => false
+          :is_stub              => false,
+          :login_count          => 1,
+          :last_request_at      => Time.now
         ))
+        
           login_as_user(@user)
           flash[:notice] = 'Thank you. Your password has been set.'
           UserNotifier.deliver_user_registered(@user)

@@ -1,0 +1,43 @@
+%h2 Send message
+
+- form_for :message, :url => {:action => :deliver_message }, :html => {:id => 'send_message_form'} do |form|
+  = form.error_messages
+
+  .form_right_column
+    .form_element_group
+      .form_element.text
+        .label
+          %strong This message will be sent to
+          - User.all.each do |user|
+            .form_element.checkbox
+              .field
+                - if user.email.blank?
+                  &nbsp;
+                - else
+                  = form.check_box "users[#{user.id}]", :checked => @users.include?(user)
+              .label 
+                %label{:for =>"message_users[#{user.id}]"}= user.name
+        .field
+
+
+  .form_left_column
+    .form_element_group.horizontal
+      .form_element.text
+        .label= form.label :subject, 'Subject'
+        .field= form.text_field :subject
+    .form_element_group
+      .form_element.text_area
+        .label= form.label :content, 'Content'
+        .field= form.text_area :content, :class=> 'mceEditor'
+
+
+  .submit
+    = form.submit 'Send message', :onclick => "if($('#send_message_form input:checkbox[checked=true]').length==0){alert('Please select at least one user'); return false};this.form.action='#{deliver_message_cms_admin_users_path}';this.form.target = '_top'"
+    or
+    = form.submit 'Preview message', :onclick => "this.form.action='#{preview_message_cms_admin_users_path}';this.form.target ='preview_iframe';$('#preview_iframe').show('slide')"
+    or 
+    = link_to 'Cancel and return to List', cms_admin_users_path
+    
+    
+  .form_left_column
+    %iframe#preview_iframe{:name => 'preview_iframe'}

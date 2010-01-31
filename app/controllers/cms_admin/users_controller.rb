@@ -2,7 +2,9 @@ class CmsAdmin::UsersController < CmsAdmin::BaseController
  
   before_filter :load_user, :only => [:edit, :update, :destroy, :delete_avatar]
   before_filter :build_user, :only => [:new, :create]
-
+  before_filter :collect_users, :only => [:send_message, :deliver_message, :preview_message]
+  
+  
   def index
     @users = User.paginate :order => 'position, first_name, last_name', :page => params[:page]
   end
@@ -52,6 +54,30 @@ class CmsAdmin::UsersController < CmsAdmin::BaseController
     redirect_to :action => :edit, :id => @user.id
   end
   
+  def send_message
+    # ...
+  end
+
+  def deliver_message
+    if @users.blank?
+      flash[:error] = 'Please select at least one user'
+      return render :action => :send_message
+    end
+    UserNotifier.deliver_new_message(@users, params[:message][:subject], params[:message][:content])
+    flash[:notice] = "Your message '#{params[:message][:subject]}' has been sent"
+    redirect_to :action => :index
+  end
+
+  def preview_message
+    @content = params[:message][:content]
+    @subject = params[:message][:subject]
+    unless @users.empty?
+      @subject.gsub!(/\{\{([^}]*)\}\}/) { @users.first.send($1) } 
+      @content.gsub!(/\{\{([^}]*)\}\}/) { @users.first.send($1) } 
+    end
+    render :layout => false
+  end
+  
 protected
 
   def build_user
@@ -60,5 +86,15 @@ protected
 
   def load_user
     @user = User.find_by_id(params[:id])
+  end
+  
+  def collect_users
+    redirect_to cms_admin_users_path unless (params[:message] && params[:message][:users])
+    @users = []
+    params[:message][:users].each do |user_id, send|
+      if (user = User.find(user_id)) && send == '1'
+        @users << user
+      end
+    end
   end
 end

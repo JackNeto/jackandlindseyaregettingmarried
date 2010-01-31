@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resource :sessions
-  map.resources :users, :member => {:delete_avatar => :delete} 
+  map.resources :users, :member => {:delete_avatar => :delete}
   
   map.with_options :controller => 'users' do |user|
     user.change_password '/change-password/:email_validation_key',
@@ -38,7 +38,13 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.namespace :cms_admin, :path_prefix => 'cms-admin' do |cms_admin|
-    cms_admin.resources :users, :member => {:delete_avatar => :delete}
+    cms_admin.resources :users, 
+      :member => {:delete_avatar => :delete}, 
+      :collection => {
+        :send_message => :post,
+        :deliver_message => :post,
+        :preview_message => :post
+      } 
   end
   
   

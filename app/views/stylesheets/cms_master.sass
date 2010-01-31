@@ -63,7 +63,7 @@ a.big_button
   padding: 0px 10px
   -moz-border-radius: 4px
   font: 12px/24px Tahoma, "Lucida Grande", sans-serif
-
+  margin-left: 10px
 .filter_form
   float: right
   margin-bottom: 15px
@@ -103,6 +103,13 @@ body
         padding: 10px
         text-align: center
         background-color: #2E9442
+        color: #fff
+        margin-bottom: 15px
+        font-size: 16px
+      .flash.error
+        padding: 10px
+        text-align: center
+        background-color: #9E0B0F
         color: #fff
         margin-bottom: 15px
         font-size: 16px
@@ -233,6 +240,9 @@ table.formatted
     .small_action
       font-size: 9px
       text-transform: uppercase
+    .email
+      font-size: 10px
+      color: #555
   th
     background-color: #eee
     font-size: 10px
@@ -294,6 +304,8 @@ table.formatted
       float: left
       line-height: 18px
       width: auto
+    .field
+      width: 22px
   .form_element.friendships
     .field
       select
@@ -473,3 +485,10 @@ form
     background: url(/images/cms/icon_draft.gif)
   .icon.published
     background-image: url(/images/cms/icon_regular.gif)
+    
+//-----------
+#cms_admin_users_send_message
+  #preview_iframe
+    width: 100%
+    height: 500px
+    display: none

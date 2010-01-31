@@ -1,48 +1,55 @@
 = link_to 'Add New User', new_cms_admin_user_path, :class => 'big_button'
+= link_to_function 'Send message', "$('#send_message_form').submit()", :class => 'big_button'
 
 %h2 Users
 
 = will_paginate @users
 
-%table.formatted
-  %tr
-    %th.first{:colspan => 2} Name
-    %th Connected with
-    %th Relationship
-    %th Show in the family page
-    %th Last logged in on
-    %th.last
-  
-  - @users.each do |user|
+- form_for 'message', :url => send_message_cms_admin_users_path(), :html => {:id => 'send_message_form'} do |f|
+  %table.formatted
     %tr
-      %td
-        .icon= image_tag user.avatar.url(:thumb)
-      %td
-        = link_to user.name.titleize, edit_cms_admin_user_path(user), :class => 'label'
-        - if user.is_admin?
-          (#{user.role})
-      %td.comment= user.friends.collect(&:name).join('<br/>')
-      %td.main.comment= user.relationship.blank? ? '(not entered)' : user.relationship
-      %td.center
-        - if user.show_in_family_page
-          %span{:class=>"published"} YES
+      %th.first{:colspan => 3} 
+        = check_box_tag 'select_all', '', false, :onclick => "$('table.formatted input:checkbox').attr('checked', this.checked)", :autocomplete => :off
+        Name
+      %th Connected with
+      %th Relationship
+      %th Show in the family page
+      %th Last logged in on
+      %th.last
+  
+    - @users.each do |user|
+      %tr
+        %td
+          - unless user.email.blank?
+            = f.check_box "users[#{user.id}]"
+        %td
+          .icon= image_tag user.avatar.url(:thumb)
+        %td
+          = link_to user.name.titleize, edit_cms_admin_user_path(user), :class => 'label'
+          - if user.is_admin?
+            (#{user.role})
           %br/
-          %span.small_action= "Position: #{user.position}"
-        - else
-          NO
-      %td.date
-        - if user.last_request_at.blank? 
-          Never logged in
-        - else
-          = user.last_request_at.to_s(:long_html)
-          %br/
-          = "Loggin count: #{pluralize(user.login_count, 'time')}"
-          %br/
-          = "Failed to loggin: #{pluralize(user.failed_login_count, 'time')}"
+          .email= user.email
+        %td.comment= user.friends.collect(&:name).join('<br/>')
+        %td.main.comment= user.relationship.blank? ? '(not entered)' : user.relationship
+        %td.center
+          - if user.show_in_family_page
+            %span{:class=>"published"} YES
+            %br/
+            %span.small_action= "Position: #{user.position}"
+          - else
+            NO
+        %td.date
+          - if user.last_request_at.blank? 
+            Never logged in
+          - else
+            = user.last_request_at.to_s(:long_html)
+            %br/
+            = "Loggin count: #{pluralize(user.login_count, 'time')}"
           
-      %td.action_links
-        = link_to 'Edit', edit_cms_admin_user_path(user)
-        |
-        = link_to 'Remove', cms_admin_user_path(user), :method => 'delete', :confirm => 'Are you sure you want to remove this user?'
+        %td.action_links
+          = link_to 'Edit', edit_cms_admin_user_path(user)
+          |
+          = link_to 'Remove', cms_admin_user_path(user), :method => 'delete', :confirm => 'Are you sure you want to remove this user?'
         
 = will_paginate @users

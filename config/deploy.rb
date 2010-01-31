@@ -39,7 +39,7 @@ namespace :deploy do
   namespace :asset do
     desc "symlink shared assets"
     task :symlink, :roles => :app, :except => { :no_release => true } do
-      %w( avatars ).each { |dir| run("ln -sf #{shared_path}/public/#{dir} #{release_path}/public/#{dir}")}
+      %w( avatars files).each { |dir| run("ln -sf #{shared_path}/public/#{dir} #{release_path}/public/#{dir}")}
     end
   end
   

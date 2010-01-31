@@ -23,7 +23,7 @@ class CmsAdmin::AttachmentsController < CmsAdmin::BaseController
     @cms_attachment.save!
     
     flash[:notice] = 'Attachment created'
-    redirect_to :action => :edit, :id => @cms_attachment
+    redirect_to :action => :index
   
   rescue ActiveRecord::RecordInvalid
     render :action => :new
@@ -33,7 +33,7 @@ class CmsAdmin::AttachmentsController < CmsAdmin::BaseController
     @cms_attachment.update_attributes!(params[:cms_attachment])
     
     flash[:notice] = 'Attachment updated'
-    redirect_to :action => :edit, :id => @cms_attachment
+    redirect_to :action => :index
   
   rescue ActiveRecord::RecordInvalid
     render :action => :edit

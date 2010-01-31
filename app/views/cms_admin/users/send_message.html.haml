@@ -32,9 +32,9 @@
 
 
   .submit
-    = form.submit 'Send message', :onclick => "if($('#send_message_form input:checkbox[checked=true]').length==0){alert('Please select at least one user'); return false};this.form.action='#{deliver_message_cms_admin_users_path}';this.form.target = '_top'"
+    = form.submit 'Send message', :onclick => "if($('#send_message_form input:checkbox[checked=true]').length==0){alert('Please select at least one user'); return false};this.form.action='#{deliver_message_cms_admin_users_path}';this.form.target = '_top'", :confirm => 'Are you sure?'
     or
-    = form.submit 'Preview message', :onclick => "this.form.action='#{preview_message_cms_admin_users_path}';this.form.target ='preview_iframe';$('#preview_iframe').show('slide')"
+    = form.submit 'Preview message', :onclick => "this.form.action='#{preview_message_cms_admin_users_path}';this.form.target ='preview_iframe';$('#preview_iframe').slideDown()"
     or 
     = link_to 'Cancel and return to List', cms_admin_users_path
     

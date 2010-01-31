@@ -15,7 +15,7 @@ class UserNotifier < Postage::Mailer
         recipients_hash[user.email][$1] = user.send($1)
       end
     end
-    recipients       recipients_hash
+    recipients       recipients_hash.blank? ? users.collect(&:email) : recipients_hash
     postage_template 'main-layout'
     setup_subject    subject
     part "text/html" do |p|

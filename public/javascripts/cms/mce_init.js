@@ -3,7 +3,8 @@ $().ready(function() {
     // Location of TinyMCE script
     script_url : '/javascripts/tiny_mce/tiny_mce.js',
     content_css : "/stylesheets/reset.css, /stylesheets/typography.css, /stylesheets/content.css",
-
+    relative_urls : false,
+    convert_urls : false,
     // General options
     theme : "advanced",
     plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",

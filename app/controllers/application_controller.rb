@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
   before_filter :login_from_cookie
-  before_filter :login_required
+  # before_filter :login_required
   before_filter :set_time_zone
   
 protected
@@ -57,4 +57,8 @@ protected
     Time.zone = 'Eastern Time (US & Canada)'
   end
   
+  def respond_not_logged_in
+    flash[:error] = "Sorry, you don't have permission to access this area."
+    redirect_to logged_in? ? home_path : login_path
+  end
 end

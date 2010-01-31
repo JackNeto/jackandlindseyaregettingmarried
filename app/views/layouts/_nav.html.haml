@@ -1,10 +1,6 @@
 %ul.nav
-  %li= active_link_to 'Home', '/'
-  %li= active_link_to 'About us', '/about-us'
-  %li= active_link_to 'The wedding', '/the-wedding'
-  %li= active_link_to 'Family & guests', family_and_guests_path
-  %li= active_link_to 'Accommodations', '/accommodations'
-  %li= active_link_to 'Things to do in Halifax', '/things-to-do-in-halifax'
+  - CmsPage.all.each do |page|
+    %li= active_link_to page.label, page.full_path
   %li.divider
   - if logged_in?
     %li= active_link_to 'Dashboard', dashboard_path

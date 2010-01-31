@@ -1,5 +1,7 @@
 - container_id = tree_branch.first.try(:parent).try(:id).to_i
 
+
+
 %ul{:id => "page_#{container_id}_branch"}
   - tree_branch.each do |page|
     
@@ -11,7 +13,7 @@
         .icon{:class => page.published_status}
           - if page.siblings.size > 0 
             .dragger
-        
+              
         = link_to page.label, edit_cms_admin_page_path(page), :class => 'label'
         
         %span.action_links
@@ -33,9 +35,24 @@
       - if session[:cms_page_tree] && session[:cms_page_tree].member?(page.id.to_s)
         %div{:id => "page_#{page.id}_children"}
           = render :partial => 'tree_branch', :object => page.children
+          
       - else
         %div{:id => "page_#{page.id}_children", :style => 'display: none'}
           Please wait. I'm loading stuff...
   
-    - if page.siblings.size > 0         
-      = sortable_element "page_#{container_id}_branch", :url => {:action => :reorder, :id => container_id}, :handle => 'dragger'
+- parent = tree_branch.first.try(:parent)
+- if parent && parent.children_count > 0
+  :javascript
+    $().ready(function(){
+      $("#page_#{parent.id}_branch").sortable({
+        revert: true,
+        update: function(event, ui) { 
+          $.post('#{reorder_cms_admin_page_path(parent.id)}', $("#page_#{parent.id}_branch").sortable('serialize'), function(data) {
+            $('.result').html(data);
+          });
+
+        }
+
+      });
+      $("ul, li").disableSelection();
+    });

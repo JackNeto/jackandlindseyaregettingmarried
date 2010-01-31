@@ -64,9 +64,12 @@ class CmsAdmin::PagesController < CmsAdmin::BaseController
   end
   
   def reorder
-    params["page_#{@cms_page.id}_branch"].each_with_index do |id, position|
+    params[:page].each_with_index do |id, position|
       @cms_page.children.find(id).update_attribute(:position, position)
     end
+    # params["page_#{@cms_page.id}_branch"].each_with_index do |id, position|
+    #   @cms_page.children.find(id).update_attribute(:position, position)
+    # end
     render :nothing => true
   end
   

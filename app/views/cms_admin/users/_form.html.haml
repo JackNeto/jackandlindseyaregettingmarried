@@ -14,9 +14,9 @@
 
 .form_right_column
   .form_element_group
-    .form_element.text.checkbox
-      .field= form.check_box :show_in_family_page
-      .label= form.label :show_in_family_page, 'Show in family page'
+    .form_element.text
+      .label= form.label :show_in, 'Show in'
+      .field= form.select :show_in, [["Don't show", ''], ['Our Parents', 'our-parents'], ['Bridal Party', 'bridal-party'], ['Family and guests', 'family-and-guests']]
 
     .form_element.text
       .label= form.label :position, 'position'

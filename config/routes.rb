@@ -34,6 +34,8 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.with_options :controller => 'content', :conditions => {:method => :get} do |content|
+    content.our_parents       '/our-parents',       :action => 'our_parents'
+    content.bridal_party      '/bridal-party',      :action => 'bridal_party'
     content.family_and_guests '/family-and-guests', :action => 'family_and_guests'
   end
   

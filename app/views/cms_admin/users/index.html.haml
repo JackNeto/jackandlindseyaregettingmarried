@@ -13,7 +13,7 @@
         Name
       %th Connected with
       %th Relationship
-      %th Show in the family page
+      %th Show in
       %th Last logged in on
       %th.last
   
@@ -32,13 +32,12 @@
           .email= user.email
         %td.comment= user.friends.collect(&:name).join('<br/>')
         %td.main.comment= user.relationship.blank? ? '(not entered)' : user.relationship
-        %td.center
-          - if user.show_in_family_page
-            %span{:class=>"published"} YES
-            %br/
-            %span.small_action= "Position: #{user.position}"
+        %td
+          - if user.show_in.blank?
+            .draft Dont' show
           - else
-            NO
+            .published= user.show_in
+            .small_action= "Position: #{user.position}"
         %td.date
           - if user.last_request_at.blank? 
             Never logged in

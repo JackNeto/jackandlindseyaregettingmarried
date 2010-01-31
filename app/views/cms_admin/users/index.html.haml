@@ -3,8 +3,6 @@
 
 %h2 Users
 
-= will_paginate @users
-
 - form_for 'message', :url => send_message_cms_admin_users_path(), :html => {:id => 'send_message_form'} do |f|
   %table.formatted
     %tr
@@ -25,7 +23,7 @@
         %td
           .icon= image_tag user.avatar.url(:thumb)
         %td
-          = link_to user.name.titleize, edit_cms_admin_user_path(user), :class => 'label'
+          = link_to user.name, edit_cms_admin_user_path(user), :class => 'label'
           - if user.is_admin?
             (#{user.role})
           %br/
@@ -51,4 +49,3 @@
           |
           = link_to 'Remove', cms_admin_user_path(user), :method => 'delete', :confirm => 'Are you sure you want to remove this user?'
         
-= will_paginate @users

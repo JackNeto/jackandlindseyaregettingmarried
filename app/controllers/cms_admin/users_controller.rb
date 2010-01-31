@@ -6,7 +6,7 @@ class CmsAdmin::UsersController < CmsAdmin::BaseController
   
   
   def index
-    @users = User.paginate :order => 'position, first_name, last_name', :page => params[:page]
+    @users = User.all :order => 'position, first_name, last_name'
   end
 
   def new

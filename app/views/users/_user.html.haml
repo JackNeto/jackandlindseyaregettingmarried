@@ -1,5 +1,5 @@
 .user
-  .avatar= image_tag user.avatar.url
+  .avatar= image_tag user.avatar.url, :class => 'tooltip', :title => "<b>#{user.name}: </b>#{user.description}"
   .name= user.name
   - unless user.relationship.blank?
     .relationship= user.relationship

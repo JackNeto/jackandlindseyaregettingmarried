@@ -4,3 +4,9 @@
 = javascript_include_tag 'jquery', 'jquery.countdown.min', 'application', 'jquery.tooltip', :cache => 'base'
 = auto_discovery_link_tag :rss, posts_url(:rss), :title => "Jack and Lindsey are getting married!"
 = yield :head
+:javascript
+  $(document).ready(function(){
+     $('.tooltip').each(function() {
+       $(this).tooltip({cssClass:"tooltip-popup", opacity:10});
+     });
+   });

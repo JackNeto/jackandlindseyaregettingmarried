@@ -70,6 +70,10 @@
       .label= form.label :relationship, 'relationship'
       .field= form.text_field :relationship
 
+    .form_element.text_area
+      .label= form.label :description, 'Description'
+      .field= form.text_area :description, :rows => 6
+
   .form_element_group
     .form_element.friendships
       .label Connect this user with:
@@ -79,4 +83,3 @@
           = button_to_function 'Add <<', "move_friends('non_friends', 'friends')"
           = button_to_function 'Remove >>', "move_friends('friends', 'non_friends')"
         = select_tag 'non_friends', options_for_select(@user.non_friends_for_select), :size =>10, :multiple => true
-    

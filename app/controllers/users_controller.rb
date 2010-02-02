@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => :change_password
   before_filter :redirect_if_logged_in, :only => [:create, :verify_email, :change_password]
   before_filter :load_user, :only => [:edit, :update, :delete_avatar]
   

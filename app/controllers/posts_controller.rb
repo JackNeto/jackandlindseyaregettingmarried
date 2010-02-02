@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   
   def show
     store_location
+    @comment.user_id = session_user.id if logged_in?
   end
 
 protected

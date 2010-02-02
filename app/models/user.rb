@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
     :through    => :friendships,
     :source     => :friend,
     :order      => 'friendships.created_at DESC'
+  has_many :cms_comments
   
   # >> Validations ----------------------------------------------------------
 

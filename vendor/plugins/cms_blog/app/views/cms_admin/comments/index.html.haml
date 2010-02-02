@@ -4,13 +4,20 @@
 
 %table.formatted
   %tr
-    %th Comment
+    %th{:colspan => 2} Comment
     %th Status
     %th Last updated on
     %th.last
   
   - @comments.each do |comment|
     %tr
+      %td
+        - if comment.user_id.blank?
+          = image_tag '/avatars/default_thumb.gif'
+        - else
+          - user = User.find(comment.user_id) 
+          = image_tag user.avatar.url(:thumb)
+        
       %td.main.comment{:id => dom_id(comment, :content)}= render :partial => 'content', :locals => {:comment => comment}
       %td.center{:id => dom_id(comment, :status)}= render :partial => 'status', :locals => {:comment => comment}
       %td.date= comment.created_at.to_s(:long_html)

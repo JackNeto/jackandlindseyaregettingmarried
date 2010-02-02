@@ -3,6 +3,7 @@ class CmsComment < ActiveRecord::Base
   # -- Relationships --------------------------------------------------------
   
   belongs_to :cms_post
+  belongs_to :user
   
   # -- Validations ----------------------------------------------------------
   

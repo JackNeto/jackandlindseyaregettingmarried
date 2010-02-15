@@ -51,6 +51,7 @@ body
         // ----------------------------------------------------------------- Sub header
         .sub_header
           overflow: hidden
+          _height: 1%
           background: #6A9968
           padding: 5px 15px
           color: #fff
@@ -60,12 +61,15 @@ body
 
         // ---------------------------------------------------------------- Navigation
         ul.nav
+          _height: 1%
           float: left
+          width: 165px
           text-align: left
           font-family: Arial,Helvetica,sans-serif
-          padding: 10px 0
-          margin-right: 10px
+          margin: 10px 0
           li
+            overflow: hidden
+            _height: 1%
             a
               display: block
               color: #3B7C3F
@@ -88,9 +92,11 @@ body
 
         // --------------------------------------------------------- Flash Messages
         .flash_message
-          position: relative
           overflow: hidden
-          margin: 10px 0px 10px 10px
+          width: 566px
+          _width: 606px
+          float: right
+          margin: 10px 0px 0px 0px
           padding: 5px 20px
           font: 16px Georgia, serif
           background: #e6f0fa
@@ -106,14 +112,15 @@ body
 
         // ---------------------------------------------------------------- Content
         .content
-          position: relative
           overflow: hidden
           text-align: left
           padding: 20px 30px
           border: solid #ddd 1px
-          margin: 10px 0 10px 10px
+          margin: 10px 0 10px 0px
           background: #fff
-
+          width: 546px
+          _width: 606px
+          float: right
           
         // ----------------------------------------------------------------- Footer
         .footer

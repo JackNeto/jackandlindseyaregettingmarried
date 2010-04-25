@@ -1,7 +1,9 @@
 .user_profile
+  - if SHOW_RSVP
+    .rsvp{:id => dom_id(profile)}= render :partial => 'rsvp', :locals => {:profile => profile}
   .avatar= image_tag profile.avatar.url
   .details
-    .links= link_to 'Edit details', edit_user_path(profile)
+    .links= link_to 'Edit profile', edit_user_path(profile)
     .name= profile.name
     - unless profile.relationship.blank?
       .relationship &nbsp;- #{profile.relationship}

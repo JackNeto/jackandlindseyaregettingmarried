@@ -1,7 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.resource :sessions
-  map.resources :users, :member => {:delete_avatar => :delete}
+  map.resources :users, 
+    :member => {
+      :delete_avatar      => :delete
+    }
   
   map.with_options :controller => 'users' do |user|
     user.change_password '/change-password/:email_validation_key',

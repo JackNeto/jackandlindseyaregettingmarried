@@ -1,0 +1,20 @@
+<%= @user.name %>
+<% if @user.rsvp.nil? %>
+  has not RSVP'ed yet.
+<% elsif @user.is_attending? %>
+  is attending the wedding.
+<% else %>
+  is not attending the wedding.
+<% end %>
+
+
+<% if @user.is_attending? %>
+  Food restrictions:
+ <% if @user.food_restrictions.nil? %>
+    not entered
+  <% elsif @user.food_restrictions.blank? %>
+    none
+  <% else %>
+    <%= @user.food_restrictions %>
+  <% end %>
+<% end %>

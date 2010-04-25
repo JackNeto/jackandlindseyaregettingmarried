@@ -1,0 +1,20 @@
+%p
+  %strong= @user.name 
+  - if @user.rsvp.nil?
+    has not RSVP'ed yet.
+  - elsif @user.is_attending?
+    is attending the wedding.
+  - else
+    is not attending the wedding.
+
+- if @user.is_attending?
+  %strong Food restrictions
+  - if @user.food_restrictions.nil?
+    %br/
+    not entered
+  - elsif @user.food_restrictions.blank?
+    %br/
+    none
+  - else
+    = simple_format(@user.food_restrictions)
+

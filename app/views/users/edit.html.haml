@@ -8,6 +8,14 @@
   = f.element '&nbsp;', image_tag(@user.avatar.url(:thumb))+(@user.avatar? ? ' '+link_to('Delete photo', delete_avatar_user_path(@user), :confirm => 'Are you sure you want to delete yout photo?', :method => :delete) : '')
   = f.file_field :avatar, :label => 'Upload photo'
   = f.text_area :description, :desc => 'Write a bit about yourself', :rows => 6
+
+  - if SHOW_RSVP
+    %br/
+    %h4 RSVP
+    = f.select :rsvp, [["Haven't responded yet", ''],['Yes', 'Yes'],['No', 'No']], :label => 'Attending the wedding?'
+    = f.text_area :food_restrictions, :desc => 'Please enter any food restriction you may have', :rows => 6
+  
+
   %br/
   %h4 Change password:
   = f.password_field :password, :autocomplete => :off, :desc => 'Leave empty unless you want to change your password'

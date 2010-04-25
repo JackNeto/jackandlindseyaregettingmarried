@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :login_required, :except => :change_password
   before_filter :redirect_if_logged_in, :only => [:create, :verify_email, :change_password]
-  before_filter :load_user, :only => [:edit, :update, :delete_avatar]
+  before_filter :load_user, :only => [:edit, :update, :delete_avatar, :rsvp]
   
   def dashboard
     # ...
@@ -17,11 +17,24 @@ class UsersController < ApplicationController
   
   def update
     @user.update_attributes!(params[:user])
-    flash[:notice] = 'User updated'
-    redirect_to :action => :dashboard
-
+    respond_to do |format|
+      format.js do
+        render :partial => 'rsvp', :locals => {:profile => @user}
+      end
+      format.html do
+        flash[:notice] = 'User profile updated'
+        redirect_to :action => :dashboard
+      end
+    end
   rescue ActiveRecord::RecordInvalid
-    render :action => :edit
+    respond_to do |format|
+      format.js do
+        render :partial => 'rsvp', :locals => {:profile => @user}
+      end
+      format.html do
+        render :action => :edit
+      end
+    end
   end
   
   
@@ -61,6 +74,15 @@ class UsersController < ApplicationController
     redirect_to :action => :edit, :id => @user.id
   end
   
+  def rsvp
+    @user.update_attributes!(:rsvp => params[:rsvp])
+    render :partial => 'rsvp', :locals => {:profile => @user}
+  end
+
+  def food_resctictions
+    @user.update_attributes!(:food_resctictions => params[:food_resctictions])
+    render :partial => 'rsvp', :locals => {:profile => @user}
+  end
 
 protected
 

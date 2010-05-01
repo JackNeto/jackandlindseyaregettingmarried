@@ -17,9 +17,15 @@
             Joaquim José Nunes Ferreira Neto & Lindsey Beth Morsh Donovan
           = render :partial => 'layouts/nav'
           = render :partial => 'layouts/flash_message'
-          - if SHOW_RSVP && (!logged_in? || (logged_in? && session_user.rsvp.nil?))
+          - if SHOW_RSVP && (!logged_in? || (logged_in? && session_user.rsvp.nil?)) && params[:action] != 'dashboard'
             .rsvp_callout
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Did you receive an invitation?
+              %br/
+              - if logged_in?
+                = link_to 'Click here to respond', dashboard_path
+              - else
+                = link_to 'Click here to login and respond', login_path
+                
           .content
             = yield
           .footer

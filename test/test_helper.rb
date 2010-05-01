@@ -36,4 +36,24 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  # Login using Wristband
+  def login_as(name)
+    if name.nil?
+      session[:user_id] = nil
+      cookies[:login_token] = nil
+      return
+    end
+    
+    user = users(name)
+    return unless (user)
+    
+    session[:user_id] = user.id
+    cookies[:login_token] = {
+      :value => Wristband::Support.encrypt_with_salt(user.id.to_s, Time.now.to_f.to_s),
+      :expires => 2.weeks.from_now.utc
+    }
+    user.id
+  end
+  
 end

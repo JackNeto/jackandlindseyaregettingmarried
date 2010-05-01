@@ -18,4 +18,4 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 end
 
-SHOW_RSVP = false
+SHOW_RSVP = true

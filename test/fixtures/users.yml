@@ -1,12 +1,8 @@
 unverified:
   email: unverified@test.test
-  cause_id: 34
-  referrer_email: verified@test.test
-  validation_key: unverified_user_key
+  email_validation_key: unverified_user_key
   
 verified:
   email: verified@test.test
-  cause_id: 34
-  referrer_email: verified@test.test
-  validation_key: verified_user_key
+  email_validation_key: verified_user_key
   validated_at: 2009-12-04 11:12:13

@@ -15,7 +15,7 @@
   .food_restrictions{:style => profile.food_restrictions.nil? ? 'display:none' : ''}
     - if profile.food_restrictions.nil?
       - formatted_remote_form_for profile, :url => user_path(profile), :update => dom_id(profile), :html => {:method => :put} do |f|
-        = f.text_area :food_restrictions, :rows => 3, :autocomplete => :off, :label => 'For the reception, do you have any food restriction we need to be aware of:'
+        = f.text_area :food_restrictions, :rows => 3, :autocomplete => :off, :label => 'For the reception, do you have any food restrictions we need to be aware of:'
         = f.submit "Save preferences", :show_ajax_loader => 'Saving your preferences ...', :cancel_url => link_to_remote('Never mind, I have no food restrictions', :url => user_path(profile), :with => "'user[food_restrictions]='", :update => dom_id(profile), :before => "$(this).parent().next().css('display', 'block');$(this).parent().hide();", :method => :put)
       :javascript
         $().ready(function(){

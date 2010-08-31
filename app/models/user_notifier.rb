@@ -6,13 +6,6 @@ class UserNotifier < Postage::Mailer
     setup_subject    "#{user.name} has registered on the website"
     body             :user => user
   end
-  
-  def user_rsvp(user)
-    recipients       ADMIN_EMAILS
-    postage_template 'main-layout'
-    setup_subject    "#{user.name} has RSVP'ed"
-    body             :user => user
-  end
 
   def new_message(users, subject, content)
     recipients_hash = {}

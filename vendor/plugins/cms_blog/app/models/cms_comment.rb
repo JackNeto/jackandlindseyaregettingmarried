@@ -40,6 +40,6 @@ protected
   end
 
   def notify_admins
-    CmsCommentNotifier::deliver_comment_posted(self)
+    CmsPostNotifier::deliver_comment_posted(self)
   end
 end

@@ -1,5 +1,5 @@
 .post
-  %h1= post.title
+  %h1= link_to post.title, post_path(post)
   .details
     Posted by
     .author= post.author

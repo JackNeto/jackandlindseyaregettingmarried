@@ -13,23 +13,14 @@
           .header
             = image_tag 'photo_blue_1.gif'
           .sub_header
-            .date When: July 17, 2010
-            Joaquim José Nunes Ferreira Neto & Lindsey Beth Morsh Donovan
+            Joaquim José Nunes Ferreira Neto & Lindsey Beth Morsh Donovan Neto
           = render :partial => 'layouts/nav'
           = render :partial => 'layouts/flash_message'
-          - if SHOW_RSVP && (!logged_in? || (logged_in? && session_user.rsvp.nil?)) && params[:action] != 'dashboard'
-            .rsvp_callout
-              Did you receive an invitation?
-              %br/
-              - if logged_in?
-                = link_to 'Click here to respond', dashboard_path
-              - else
-                = link_to 'Click here to login and respond', login_path
                 
           .content
             = yield
           .footer
-            #defaultCountdown
+            .quote= javascript_include_tag "http://www.brainyquote.com/link/quotebr.js"
       .right
     :javascript
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

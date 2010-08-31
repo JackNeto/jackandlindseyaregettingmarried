@@ -1,4 +1,4 @@
-class CmsCommentNotifier < Postage::Mailer
+class CmsPostNotifier < Postage::Mailer
   
   def comment_posted(comment)
     recipients       ADMIN_EMAILS
@@ -7,6 +7,12 @@ class CmsCommentNotifier < Postage::Mailer
     body             :comment => comment
   end
 
+  def new_post(post)
+    recipients       User.all.collect(&:email)
+    postage_template 'main-layout'
+    setup_subject    "A new entry has been posted on Jack & Lindsey's website"
+    body             :post => post
+  end
 
 protected
 

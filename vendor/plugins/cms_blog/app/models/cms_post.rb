@@ -13,6 +13,9 @@ class CmsPost < ActiveRecord::Base
 
   named_scope :published, :conditions => {:is_published => true }
   
+  # -- AR Callbacks ---------------------------------------------------------
+  
+  after_save :notify_users
   
   # -- Instance Methods --------------------------------------------------------
   
@@ -20,5 +23,10 @@ class CmsPost < ActiveRecord::Base
     "#{self.id}-#{title.slugify}"
   end
   
-  
+protected
+  def notify_users
+    if self.is_published_changed? && self.is_published?
+      CmsPostNotifier::deliver_new_post(self)
+    end
+  end
 end

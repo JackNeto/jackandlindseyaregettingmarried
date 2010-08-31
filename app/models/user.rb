@@ -58,7 +58,6 @@ class User < ActiveRecord::Base
 
   attr_accessor :remember_me
   after_destroy :delete_friends
-  after_update :notify_if_rsvp
   
   # >> Class methods ----------------------------------------------------------
   
@@ -84,14 +83,6 @@ class User < ActiveRecord::Base
     end
   end
   
-  def is_attending?
-    rsvp == 'Yes'
-  end
-  
-  def is_not_attending?
-    rsvp == 'No'
-  end
-  
 protected
 
   def password_required?
@@ -102,9 +93,4 @@ protected
     Friendship.delete_all("user_id = #{self.id} OR friend_id = #{self.id}")
   end
   
-  def notify_if_rsvp
-    if rsvp_changed?
-      UserNotifier::deliver_user_rsvp(self)
-    end
-  end
 end

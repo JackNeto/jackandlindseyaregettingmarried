@@ -11,7 +11,6 @@
         Name
       %th Connected with
       %th Show in
-      %th Is attending?
       %th Last logged in on
       %th.last
   
@@ -38,21 +37,6 @@
           - else
             .published= user.show_in
             .small_action= "Position: #{user.position}"
-        %td.comment
-          - if user.is_not_attending?
-            NO
-          - elsif user.is_attending?
-            .published
-              %strong YES
-            %strong Food restrictions
-            - if user.food_restrictions.nil?
-              %br/
-              not entered
-            - elsif user.food_restrictions.blank?
-              %br/
-              none
-            - else
-              = simple_format(user.food_restrictions)
         %td.date
           - if user.last_request_at.blank? 
             Never logged in

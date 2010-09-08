@@ -40,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
     content.our_parents       '/our-parents',       :action => 'our_parents'
     content.bridal_party      '/bridal-party',      :action => 'bridal_party'
     content.family_and_guests '/family-and-guests', :action => 'family_and_guests'
+    content.photos            '/photos',            :action => 'photos'
   end
   
   map.namespace :cms_admin, :path_prefix => 'cms-admin' do |cms_admin|

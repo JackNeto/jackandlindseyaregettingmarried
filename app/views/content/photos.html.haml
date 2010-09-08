@@ -1,0 +1,10 @@
+- content_for :head do
+  = javascript_include_tag 'galleria', 'galleria_themes/fullscreen/galleria.fullscreen'
+  :javascript
+    $().ready(function() {
+      $('#galleria').galleria();
+    });
+    
+#galleria
+  - Dir.glob(RAILS_ROOT+'/public/photos/*').each do |file|
+    = image_tag SITE_URL + '/photos/'+ File.basename(file)

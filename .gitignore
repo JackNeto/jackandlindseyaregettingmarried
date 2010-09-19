@@ -6,6 +6,7 @@ public/stylesheets/*
 public/javascripts/base.js
 public/avatars
 public/files
+public/photos
 db/development_structure.sql
 db/development.sqlite3
 db/schema.rb

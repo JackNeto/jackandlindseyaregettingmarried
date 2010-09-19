@@ -15,7 +15,7 @@
 = @cms_page.content
 
 .photos
-  - Dir.glob(RAILS_ROOT+'/public/photos/thumbs/*').each do |file|
+  - Dir.glob(RAILS_ROOT+'/public/photos/thumbs/*').sort.each do |file|
     .photo
       = link_to image_tag(SITE_URL + '/photos/thumbs/'+ File.basename(file)), SITE_URL + '/photos/'+ File.basename(file), :rel=>"shadowbox[Wedding]", :title => "Photo ##{File.basename(file, '.jpg').split(' - ').last.to_i}"
       .name= File.basename(file, '.jpg').split(' - ').last.to_i

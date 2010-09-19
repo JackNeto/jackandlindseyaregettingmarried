@@ -5,7 +5,6 @@ tmp/*/*
 public/stylesheets/*
 public/javascripts/base.js
 public/avatars
-public/photos
 public/files
 db/development_structure.sql
 db/development.sqlite3

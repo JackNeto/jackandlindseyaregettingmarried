@@ -1,10 +1,22 @@
 - content_for :head do
-  = javascript_include_tag 'galleria', 'galleria_themes/fullscreen/galleria.fullscreen'
+  = stylesheet_link_tag '/javascripts/shadowbox/shadowbox'
+  = javascript_include_tag 'shadowbox/shadowbox'
+  
   :javascript
     $().ready(function() {
-      $('#galleria').galleria();
+      Shadowbox.init({
+        continuous: true,
+        viewportPadding: 5
+      });
     });
     
-#galleria
-  - Dir.glob(RAILS_ROOT+'/public/photos/*').each do |file|
-    = image_tag SITE_URL + '/photos/'+ File.basename(file)
+%h1= @cms_page.label
+
+= @cms_page.content
+
+.photos
+  - Dir.glob(RAILS_ROOT+'/public/photos/thumbs/*').each do |file|
+    .photo
+      = link_to image_tag(SITE_URL + '/photos/thumbs/'+ File.basename(file)), SITE_URL + '/photos/'+ File.basename(file), :rel=>"shadowbox[Wedding]", :title => "Photo ##{File.basename(file, '.jpg').split(' - ').last.to_i}"
+      .name= File.basename(file, '.jpg').split(' - ').last.to_i
+  

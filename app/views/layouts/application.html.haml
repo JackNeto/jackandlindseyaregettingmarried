@@ -4,7 +4,7 @@
   %head
     = render :partial => 'layouts/head'
     
-  %body
+  %body{ :id => "#{params[:controller]}_#{params[:action]}".underscore, :class => "#{params[:controller]}_pages" }
     .body_wrapper
       .left
       .center

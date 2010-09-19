@@ -3,6 +3,10 @@ class ContentController < ApplicationController
     @posts = CmsPost.published.all(:order => 'created_at DESC')
   end
   
+  def photos
+    @cms_page = CmsPage.find_by_slug('photos')    
+  end
+  
   %w{family-and-guests bridal-party our-parents}.each do |page_slug|
     define_method(page_slug.underscore.to_sym) {
       @users = User.all(:conditions => {:show_in => page_slug}, :order => :position)
